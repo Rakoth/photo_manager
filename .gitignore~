@@ -6,5 +6,3 @@ doc/app
 .idea/**/*
 nbproject/*
 nbproject/**/*
-public/system/*
-public/system/**/*
