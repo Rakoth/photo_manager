@@ -1,0 +1,2 @@
+page[dom_id @comment].remove_class_name 'spam'
+page.replace_html dom_id(@comment, :spam_actions), :partial => 'spam_actions', :locals => {:comment => @comment}

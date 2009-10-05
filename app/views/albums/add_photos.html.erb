@@ -1,0 +1,17 @@
+<% title t('.title', :id => @album.id) %>
+
+<% @admin_menu = [
+	link_to("Edit", edit_album_path(@album)),
+	link_to("Delete", album_path(@album), :method => :delete, :confirm => t(:confirm))
+]%>
+
+<% form_for @album, :url => create_photos_album_path(@album), :html => {:multipart => true, :method => :post} do |form| %>
+  <%= form.error_messages %>
+  <div id="form_photos">
+    <%= render 'photo', :object => Photo.new %>
+  </div>
+  <%= add_photo_link t(:add), :form_photos %>
+  <p>
+    <%= form.submit t(:submit) %>
+  </p>
+<% end %>

@@ -1,0 +1,4 @@
+<% title t('.title', :id => @photo.id) %>
+<% caption @photo.description %>
+
+<%= render :partial => 'form', :locals => {:comment => @comment} %>

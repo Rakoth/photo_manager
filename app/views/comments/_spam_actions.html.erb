@@ -1,0 +1,7 @@
+<span id="<%= dom_id comment, :spam_actions %>">
+	<% if comment.looks_like_spam? %>
+		<%= link_to_remote 'Ham!', :url => ham_comment_path(comment), :method => :put %>
+	<% else %>
+		<%= link_to_remote  'Spam!', :url => spam_comment_path(comment), :method => :put %>
+	<% end %>
+</span>

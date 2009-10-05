@@ -1,0 +1,7 @@
+<div id="rating">
+	<% if @photo.can_be_rated?(request) %>
+		<%= render :partial => 'ratings/new', :locals => {:photo => @photo} %>
+	<% else %>
+		<%= render :partial => 'rating', :locals => {:rating => @photo.rating} %>
+	<% end %>
+</div>

@@ -1,0 +1,6 @@
+<span>
+	<%= t '.current_rating',
+		:value => content_tag(:span, number_with_precision(rating, :precision => 2),
+		:class => 'rating_value'
+	)%>
+</span>

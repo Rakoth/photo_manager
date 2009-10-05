@@ -1,0 +1,6 @@
+<div id="single_photo">
+  <%= link_to_unless_current photo_image(photo, style),
+		photo,
+		:title => t('.photo_title', :comments => photo.comments.size)
+	%>
+</div>

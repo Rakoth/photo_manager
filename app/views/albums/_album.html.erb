@@ -1,0 +1,17 @@
+<% div_for album do %>
+	<div class="cover">
+		<%= link_to photo_image(album.cover, :thumb), album  %>
+	</div>
+	<div>
+		<strong class="title"><%= link_to h(album.title), album %></strong><br />
+		<em><%= time_viewer album %></em>
+		<div><%=h album.description %></div>
+	</div>
+	<% if admin? %>
+		<div>
+			<%= link_to t(:edit), edit_album_path(album) %>
+			<%= link_to t(:delete), album, :confirm => t(:confirm), :method => :delete %>
+		</div>
+	<% end %>
+	<div class="clear"></div>
+<% end %>

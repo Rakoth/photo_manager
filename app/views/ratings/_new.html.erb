@@ -1,0 +1,12 @@
+<div id="rating">
+	<% remote_form_for Rating.new do |form| %>
+		<%= hidden_field_tag :photo_id, photo.id %>
+		<div><%= t '.choose_rating' %></div>
+		<div>
+			<% Rating::VALUES.each do |i| %>
+				<%= form.radio_button :value, i %> <%= form.label :value, i %>
+			<% end %>
+			<%= form.submit t(:vote) %>
+		</div>
+	<% end %>
+</div>

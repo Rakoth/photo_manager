@@ -1,0 +1,19 @@
+<% remote_form_for comment, :html => {:id => :comment_form} do |form| %>
+	<%= form.error_messages %>
+	<%= hidden_field_tag :photo_id, @photo.id %>
+
+		<div><%= form.label :author %></div>
+		<div><%= form.text_field :author %></div>
+
+		<div><%= form.label :author_url %></div>
+		<div><%= form.text_field :author_url %></div>
+
+		<div><%= form.label :author_email %></div>
+		<div><%= form.text_field :author_email %></div>
+
+		<div><%= form.label :content %></div>
+		<div><%= form.text_area :content, :rows => 5, :cols => 35 %></div>
+
+		<div><%= form.submit t(:add) %></div>
+
+<% end %>

@@ -1,0 +1,16 @@
+<% div_for photo do %>
+  <% fields_for 'album[photos_attributes][]', photo do |photo_fields| %>
+    <% if photo.new_record? %>
+      <p>
+	<%= photo_fields.label :image %>
+	<%= photo_fields.file_field :image %>
+      </p>
+    <% else %>
+      <%= render :partial => 'edit_photo', :locals => {:photo => photo, :photo_fields => photo_fields} %>
+    <% end %>
+    <p>
+      <%= photo_fields.label :description %>
+      <%= photo_fields.text_field :description %>
+    </p>
+  <% end %>
+<% end %>

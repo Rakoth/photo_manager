@@ -1,0 +1,5 @@
+<% title t('.title') %>
+
+<% form_for @album, :html => {:multipart => true} do |f| %>
+  <%= render :partial => 'form', :object => f %>
+<% end %>

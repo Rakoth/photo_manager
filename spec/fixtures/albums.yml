@@ -1,0 +1,20 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 2
+  title: MyString
+  description: MyText
+  created_at: <%= 10.days.ago %>
+  updated_at: <%= 1.days.ago %>
+
+two:
+  title: MyString
+  description: MyText
+  created_at: <%= 10.days.ago %>
+  updated_at: <%= 1.days.ago %>
+
+with_cover:
+  id: 1
+  title: MyString
+  description: MyText
+  cover_id: 1

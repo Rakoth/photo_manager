@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyString
+  album: 1
+
+two:
+  id: 2
+  description: MyString1
+  album_id: 2
+
+three:
+  id: 3
+  description: MyString
+  album_id: 2
+
+four:
+  id: 4
+  description: MyString
+  album_id: 2
+
+cover:
+  id: 1
+  description: MyString
+  album_id: 1
+
+without_album_one:
+  description: MyString
+
+without_album_two:
+  description: MyString1
+
+with_comments:
+  id: 10
+  description: With Comments

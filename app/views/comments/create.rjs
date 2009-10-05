@@ -1,0 +1,7 @@
+unless @comment.new_record?
+	page.insert_html :bottom, :comments, :partial => 'comment', :object => @comment
+	page.visual_effect :highlight, dom_id(@comment)
+	page.replace_html :comment_form, :partial => 'form', :locals => {:comment => Comment.new}
+else
+	page.replace_html :comment_form, :partial => 'form', :locals => {:comment => @comment}
+end

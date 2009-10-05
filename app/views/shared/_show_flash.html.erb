@@ -1,0 +1,17 @@
+<% if flash.any? %>
+	<div id="flash" style="display:none;">
+		<% flash.each do |key, message| %>
+			<%= content_tag :div, message, :id => key, :class => 'flash' %>
+		<% end %>
+	</div>
+	<script type="text/javascript">
+		<%= render 'shared/active_flash' %>
+	</script>
+	<noscript>
+		<div id="no_script_flash">
+			<% flash.each do |key, message| %>
+				<%= content_tag :div, message, :id => key, :class => 'flash' %>
+			<% end %>
+		</div>
+	</noscript>
+<% end %>

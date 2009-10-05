@@ -1,0 +1,7 @@
+<% title t('.title') %>
+
+<% form_tag session_path do %>
+	<%= label_tag :password, t('.password') %>
+	<%= password_field_tag :password %>
+	<%= submit_tag t(:submit) %>
+<% end %>

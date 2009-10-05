@@ -1,0 +1,2 @@
+page[:flash].show
+page.visual_effect :fade, 'flash', :duration => 5

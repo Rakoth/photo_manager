@@ -1,0 +1,19 @@
+<% form_for @category, :html => {:multipart => true} do |form| %>
+	<%= form.error_messages %>
+	<p>
+		<%= form.label :title %><br />
+		<%= form.text_field :title %>
+	</p>
+	<p>
+		<%= form.label :description %><br />
+		<%= form.text_area :description %>
+	</p>
+	<p>
+		<%= image_tag @category.title_image.url(:normal) %><br />
+		<%= form.label :title_image %><br />
+		<%= form.file_field :title_image %>
+	</p>
+	<p>
+		<%= form.submit t(:submit) %>
+	</p>
+<% end %>

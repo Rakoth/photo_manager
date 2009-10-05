@@ -1,0 +1,5 @@
+<% title t('.title', :id => @photo.id) %>
+
+<% @admin_menu = [
+	link_to("Delete", photo_path(@photo), :method => :delete, :confirm => t(:confirm))
+]%>

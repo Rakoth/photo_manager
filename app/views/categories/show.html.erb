@@ -1,0 +1,10 @@
+<% title @category.title %>
+
+<% caption @category.description %>
+
+<% @admin_menu = [
+	link_to("Edit", edit_category_path(@category)),
+	link_to("Delete", category_path(@category), :method => :delete, :confirm => t(:confirm))
+]%>
+
+<%= render @category.albums %>

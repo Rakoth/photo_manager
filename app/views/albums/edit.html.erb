@@ -1,0 +1,16 @@
+<% title t('.title', :id => @album.id) %>
+
+<% @admin_menu = [
+	link_to("Delete", album_path(@album), :method => :delete, :confirm => t(:confirm)),
+	link_to("Add Photos", add_photos_album_path(@album))
+]%>
+
+<% form_for @album, :html => {:multipart => true} do |f| %>
+  <%= render :partial => 'form', :object => f %>
+  <% @album.photos.in_groups_of(AppConfig.images_in_row, false) do |group| %>
+    <%= render :partial => 'photo', :collection => group %>
+  <% end %>
+  <p>
+    <%= f.submit t(:submit) %>
+  </p>
+<% end %>

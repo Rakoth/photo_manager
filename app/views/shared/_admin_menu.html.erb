@@ -1,0 +1,13 @@
+<% @admin_menu ||= [] %>
+<div id="admin_menu">
+	<ul>
+		<li><%= link_to "New Category", new_category_path %></li>
+		<li><%= link_to "New Album", new_album_path %></li>
+		<li><%= link_to "New Photo", new_photo_path %></li>
+		<li><%= link_to "Comments", comments_path %></li>
+		<% @admin_menu.each do |link| %>
+			<li><%= link %></li>
+		<% end %>
+		<li><%= link_to "Logout", session_path, :method => :delete %></li>
+	</ul>
+</div>

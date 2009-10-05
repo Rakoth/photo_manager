@@ -1,0 +1,16 @@
+<%= form.error_messages %>
+<p>
+  <%= form.label :title %><br />
+  <%= form.text_field :title %>
+</p>
+<p>
+  <%= form.label :description %><br />
+  <%= form.text_area :description %>
+</p>
+<p>
+  <%= form.label :category %><br />
+  <%= form.collection_select :category_id, Category.all, :id, :title %>
+</p>
+<p>
+  <%= form.submit t(:submit) %>
+</p>

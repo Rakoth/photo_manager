@@ -1,0 +1,7 @@
+<% title t('.title') %>
+
+<% @admin_menu = [
+	link_to('Delete spam', delete_spam_comments_path, :method => :delete)
+]%>
+
+<%= render :partial => 'comment', :collection => @comments, :as => :comment, :locals => {:with_photo => true} %>

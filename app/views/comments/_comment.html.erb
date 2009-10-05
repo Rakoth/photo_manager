@@ -1,0 +1,26 @@
+<% div_for comment, :class => comment.looks_like_spam? ? 'spam' : '' do %>
+
+	<% if with_photo %>
+		<div class="comment_photo">
+			<%= link_to photo_image(comment.photo, :small), comment.photo %>
+		</div>
+	<% end %>
+
+	<div class="avatar">
+		<%= gravatar comment, :size => '45x45' %>
+	</div>
+	<div class="author">
+		<%= author_name comment %>&nbsp;&nbsp;<em><%=l comment.created_at, :format => :smart %></em>
+		<% if admin? %>
+			<%= link_to_remote 'Delete',
+				:url => comment_path(comment),
+				:method => :delete,
+				:confirm => t(:confirm),
+				:success => "$('#{dom_id comment}').remove();"
+		%>
+			<%= render :partial => 'comments/spam_actions', :locals => {:comment => comment} %>
+		<% end %>
+	</div>
+	<div class="content"><%= comment.content %></div>
+	<div class="clear"></div>
+<% end %>

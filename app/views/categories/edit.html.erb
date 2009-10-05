@@ -1,0 +1,7 @@
+<% title t('.title', :name => @category.title) %>
+
+<% @admin_menu = [
+	link_to("Delete", category_path(@category), :method => :delete, :confirm => t(:confirm))
+]%>
+
+<%= render 'form' %>

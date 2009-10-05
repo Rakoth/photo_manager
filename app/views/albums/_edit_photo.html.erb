@@ -1,0 +1,11 @@
+<%= photo_image photo, :thumb %>
+<%= photo_fields.hidden_field :id %>
+<%= photo_fields.label :_delete %><%= photo_fields.check_box :_delete %>
+<% unless photo.cover? %>
+  <%= link_to_remote t(:cover),
+    :html => {:class => :cover_link},
+    :url => cover_album_path(@album, :photo_id => photo.id),
+    :method => :put,
+    :success => "$$('.cover_link').invoke('show'); $$('##{dom_id photo} .cover_link').invoke('hide')"
+  %>
+<% end %>
