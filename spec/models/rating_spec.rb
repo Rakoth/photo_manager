@@ -40,5 +40,4 @@ describe Rating do
     @rating.user_ip.should == 'ip'
     @rating.user_agent.should == 'agent'
   end
-
 end

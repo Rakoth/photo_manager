@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
       redirect_to @category
     else
       flash[:error] = t 'categories.flash.updating_failed'
-      render :action => :edit
+      render :edit
     end
   end
 
@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
       flash[:notice] = t 'categories.flash.created'
       redirect_to @category
     else
-      render :action => :new
+      render :new
     end
   end
 

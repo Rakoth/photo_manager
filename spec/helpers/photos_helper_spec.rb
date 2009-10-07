@@ -10,9 +10,9 @@ describe PhotosHelper do
 		end
 
 		it  "should return image tag" do
-			@photo.should match /<img.*? \/>/i
+			@photo.should match(/<img.*? \/>/i)
 			@photo.should include "alt="
-			@photo.should include "src=\"#{photos(:one).image.url(:small)}\""
+			@photo.should include "src=\"#{photos(:one).image.url(:small)}"
 		end
 	end
 end

@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
 			flash[:notice] = t 'albums.flash.photos_added'
 			redirect_to @album
 		else
-			render :action => :add_photos
+			render :add_photos
 		end
 	end
 
@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
 			flash[:notice] = t 'albums.flash.created'
 			redirect_to add_photos_album_url(@album)
 		else
-			render :action => :new
+			render :new
 		end
   end
 
@@ -34,7 +34,7 @@ class AlbumsController < ApplicationController
 			flash[:notice] = t 'albums.flash.updated'
 			redirect_to @album
 		else
-			render :action => :edit
+			render :edit
 		end
   end
 

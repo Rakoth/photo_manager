@@ -9,7 +9,7 @@ class SessionController < ApplicationController
 		else
 			reset_session
 			flash[:error] = t 'session.flash.login_failed'
-			render :action => :new
+			render :new
 		end
   end
 

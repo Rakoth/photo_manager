@@ -7,4 +7,6 @@ class Category < ActiveRecord::Base
 	validates_attachment_content_type :title_image, :if => :new_record?, :content_type => ['image/gif'],
 		:message => I18n.t('activerecord.errors.messages.invalid')
 	validates_length_of :description, :maximum => 255, :allow_nil => true
+	validates_length_of :title, :maximum => 255
+	validates_presence_of :title
 end

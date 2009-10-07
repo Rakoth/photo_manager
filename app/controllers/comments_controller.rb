@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 			respond_to do |format|
 				format.html do
 					flash[:error] = t 'comments.flash.creating_failed'
-					render :action => :new
+					render :new
 				end
 				format.js
 			end

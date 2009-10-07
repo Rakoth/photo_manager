@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
 
 	def without_album
 		@photos = Photo.without_album
-		render :action => :index
+		render :index
 	end
 
   def new
@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
 			redirect_to photo_path @photo
 		else
 			flash[:error] = t 'photos.flash.creating_failed'
-			render :action => :new
+			render :new
 		end
 	end
 

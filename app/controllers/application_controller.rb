@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
 		unless admin?
 			flash[:error] = t 'application.flash.non_authorized'
 			redirect_to login_path
-			false
 		end
 	end
 end
