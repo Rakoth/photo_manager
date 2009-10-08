@@ -1,16 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Rating do
-	fixtures :photos
-	
-  before do
-		@rating = Rating.new
-  end
-
   it "should create a new instance given valid attributes" do
     @valid_attributes = {
       :value => 1,
-      :photo => photos(:one),
+      :photo => photo,
       :user_ip => "new user ip",
       :user_agent => "new user agent"
     }
@@ -18,26 +12,21 @@ describe Rating do
   end
 
 	it "should validate presence of photo, value" do
-		@rating.should have(2).error_on(:value)
-		@rating.should have(1).error_on(:photo)
+		@it = Rating.new
+		@it.should have(2).error_on(:value)
+		@it.should have(1).error_on(:photo)
 	end
 
 	it "should validate uniqueness of user_ip + user_agent + photo_id" do
-		attributes = {
-			:value => 1,
-			:user_ip => '10.0.0.1',
-			:user_agent => 'Mozilla',
-			:photo_id => 1
-		}
-		@rating.update_attributes attributes
-
-		@new_rating = Rating.new attributes
-		@new_rating.should_not be_valid
+		user_data = {:user_ip => '10.0.0.1', :photo_id => 1}
+		Factory.create(:rating, user_data) #first - correct
+		Factory.build(:rating, user_data).should_not be_valid # next -no
 	end
 
   it "should set request based attributes" do
-    @rating.request = stub(:remote_ip => 'ip', :env => {'HTTP_USER_AGENT' => 'agent'})
-    @rating.user_ip.should == 'ip'
-    @rating.user_agent.should == 'agent'
+		@it = Factory.create(:rating, :user_ip => '10.0.0.1', :photo_id => 1)
+    @it.request = stub(:remote_ip => 'ip', :env => {'HTTP_USER_AGENT' => 'agent'})
+    @it.user_ip.should == 'ip'
+    @it.user_agent.should == 'agent'
   end
 end

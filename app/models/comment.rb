@@ -51,7 +51,6 @@ class Comment < ActiveRecord::Base
   end
 
 	def check_for_spam
-		#errors.add_to_base I18n.t('activerecord.errors.messages.looks_like_spam') if spam?
 		self.spam = spam?
 		true
 	end
