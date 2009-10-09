@@ -1,5 +1,5 @@
 Factory.define :photo do |f|
-	f.image File.new('./spec/fixtures/images/test.png')
+	f.image File.new("#{Rails.root}/spec/fixtures/images/test.png")
 end
 
 Factory.define :album do |f|
@@ -9,7 +9,7 @@ end
 Factory.define :category do |f|
 	f.sequence(:title) {|n| "Test Category №#{n}"}
 	f.description "Test Category Description"
-	f.title_image File.new('./spec/fixtures/images/test.png')
+	f.title_image File.new("#{Rails.root}/spec/fixtures/images/test.gif")
 end
 
 Factory.define :comment do |f|

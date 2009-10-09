@@ -11,25 +11,25 @@ When /^I go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-When /^I press "([^\"]*)"$/ do |button|
-  click_button(button)
-end
-
-When /^I follow "([^\"]*)"$/ do |link|
-  click_link(link)
-end
-
-When /^I follow "([^\"]*)" within "([^\"]*)"$/ do |link, parent|
-  click_link_within(parent, link)
-end
-
-When /^I fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
-  fill_in(field, :with => value) 
-end
-
-When /^I fill in "([^\"]*)" for "([^\"]*)"$/ do |value, field|
-  fill_in(field, :with => value)
-end
+#When /^I press "([^\"]*)"$/ do |button|
+#  click_button(button)
+#end
+#
+#When /^I follow "([^\"]*)"$/ do |link|
+#  click_link(link)
+#end
+#
+#When /^I follow "([^\"]*)" within "([^\"]*)"$/ do |link, parent|
+#  click_link_within(parent, link)
+#end
+#
+#When /^I fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
+#  fill_in(field, :with => value)
+#end
+#
+#When /^I fill in "([^\"]*)" for "([^\"]*)"$/ do |value, field|
+#  fill_in(field, :with => value)
+#end
 
 # Use this to fill in an entire form with data from a table. Example:
 #
@@ -111,22 +111,22 @@ When /^I choose "([^\"]*)"$/ do |field|
   choose(field)
 end
 
-When /^I attach the file at "([^\"]*)" to "([^\"]*)"$/ do |path, field|
-  attach_file(field, path)
-end
+#When /^I attach the file at "([^\"]*)" to "([^\"]*)"$/ do |path, field|
+#  attach_file(field, path)
+#end
 
-Then /^I should see "([^\"]*)"$/ do |text|
-  response.should contain(text)
-end
+#Then /^I should see "([^\"]*)"$/ do |text|
+#  response.should contain(text)
+#end
 
 Then /^I should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
   response.should contain(regexp)
 end
 
-Then /^I should not see "([^\"]*)"$/ do |text|
-  response.should_not contain(text)
-end
+#Then /^I should not see "([^\"]*)"$/ do |text|
+#  response.should_not contain(text)
+#end
 
 Then /^I should not see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)

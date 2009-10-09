@@ -4,10 +4,4 @@
 	<% category.photos.each do |p| %>
 		<%= link_to photo_image(p, :small), p %>
 	<% end %>
-	<% if admin? %>
-		<div>
-			<%= link_to 'Edit', edit_category_path(category) %>
-			<%= link_to 'Delete', category_path(category), :method => :delete, :confirm => 'Are you sure?' %>
-		</div>
-	<% end %>
 </div>

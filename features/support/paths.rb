@@ -10,6 +10,14 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
+    when /the new album page/
+      new_album_path
+    when /the new category page/
+      new_category_path
+		when /the list of categories/
+			categories_path
+		when /"(.*?)" category page/
+			category_path(Category.find_by_title($1))
     
     # Add more mappings here.
     # Here is a more fancy example:
