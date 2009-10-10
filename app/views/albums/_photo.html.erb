@@ -1,4 +1,4 @@
-<% div_for photo do %>
+<% content_tag :div, :id => dom_id(photo) do %>
   <% fields_for 'album[photos_attributes][]', photo do |photo_fields| %>
     <% if photo.new_record? %>
       <p>
