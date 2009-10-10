@@ -21,6 +21,9 @@ ru:
   next_photo: Следующая фотография
 
   ratings:
+    flash:
+      created: Ваш голос защитан
+      creating_failed: Ошибка при выставлении рейтинга, возможно Ваш голос уже защитан
     new:
       choose_rating: Оцените фотографию
       

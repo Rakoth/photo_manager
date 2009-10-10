@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-	before_filter :find_photo, :except => [:index, :new, :create]
+	before_filter :find_photo, :except => [:index, :new, :create, :sort]
 
 	def index
 		@photos = Photo.all
@@ -40,6 +40,13 @@ class PhotosController < ApplicationController
 
 	def reset_rating
 		@photo.reset_rating!
+	end
+
+	def sort
+		params[:photos].each_with_index do |photo_id, index|
+			Photo.update_all ['position = ?', index + 1], ['id = ?', photo_id]
+		end
+		render :nothing => true
 	end
 
 	protected

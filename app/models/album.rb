@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base
-	has_many :photos
+	has_many :photos, :order => 'position'
 	belongs_to :category
 	belongs_to :cover, :class_name => 'Photo'
 	accepts_nested_attributes_for :photos, :allow_destroy => true

@@ -5,6 +5,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.references :album
 			t.datetime :deleted_at
 			t.integer :comments_count, :default => 0
+			t.integer :position
 
       t.timestamps
     end

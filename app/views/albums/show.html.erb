@@ -10,14 +10,13 @@
 
 <% menu this_category_link(@album.category) %>
 
-<div>
-	<% @album.photos.in_groups_of(AppConfig.images_in_row, false) do |group| %>
-		<div class="photos">
-			<%= render :partial => '/photos/photo',
-				:collection => group,
-				:as => :photo,
-				:locals => {:style => :thumb}
-		%>
-		</div>
-	<% end %>
+<div id="photos">
+	<%= render :partial => 'photos/photo', :collection => @album.photos, :locals => {:style => :thumb} %>
 </div>
+<%= sortable_element(:photos,
+	:url => sort_photos_path,
+	:method => :put,
+	:tag => :div,
+	:handle => :photo_handle,
+	:constraint => :horizontal
+) if admin? %>

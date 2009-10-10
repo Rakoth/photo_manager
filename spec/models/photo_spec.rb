@@ -23,7 +23,7 @@ describe Photo do
     }
 		
     photo = Photo.create(@invalid_attributes)
-		photo.should be_new_record
+		photo.should be_a_new_record
 		photo.should_not be_valid
 		photo.should have(1).error_on(:description)
 		photo.should have(1).error_on(:image)

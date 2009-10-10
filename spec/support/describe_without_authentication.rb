@@ -7,7 +7,7 @@ def describe_without_authentication model, actions = []
 		actions.each do |action|
 			describe action do
 				before { get action }
-				redirect
+				redirect 'login_path'
 				error
 			end
 		end

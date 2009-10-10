@@ -79,20 +79,25 @@ a:hover{text-decoration:underline;}
 	background-image:url('/images/background/sections/contact_me.gif');
 }
 
-.photos{
-	width:735px;
-	height:140px;
+#photos{
+	margin:10px;
+	padding:0;
 	background:#9c0;
-	padding:5px 10px 5px 20px;
+	display:table;
 }
-
-.photos div{
+#photos .photo{
 	width:140px;
 	height:135px;
 	background-image:url('/images/background/single_photo.gif');
-	margin-left:5px;
+	margin:0 0 10px 5px;
 	float:left;
 	padding-top:5px;
+}
+.photo_handle{
+	font:lighter 10px monospase;
+	cursor:move;
+}
+.photo{
 	text-align:center;
 }
 
@@ -134,9 +139,6 @@ a:hover{text-decoration:underline;}
 }
 .clear{
 	clear:both;
-}
-#single_photo{
-	text-align:center;
 }
 #comment_form{
 	padding-left:20px;

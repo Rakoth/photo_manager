@@ -1,5 +1,5 @@
 unless @comment.new_record?
-	page.insert_html :bottom, :comments, :partial => 'comment', :object => @comment
+	page.insert_html :bottom, :comments, :partial => 'comment', :object => @comment, :locals => {:with_photo => false}
 	page.visual_effect :highlight, dom_id(@comment)
 	page.replace_html :comment_form, :partial => 'form', :locals => {:comment => Comment.new}
 else

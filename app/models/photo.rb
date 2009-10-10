@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
+	acts_as_list
+	
   belongs_to :album
 	has_many :comments, :conditions => {:spam => false}, :dependent => :delete_all
 	has_many :spams, :conditions => {:spam => true}, :class_name => 'Comment', :dependent => :delete_all

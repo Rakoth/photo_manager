@@ -65,7 +65,25 @@ describe PhotosController do
 				delete :reset_rating
 			end
 		end
+
+		describe "POST 'sort'" do
+			it "should set new position for photos" do
+				params = {:photos => ["1", "2", "3"]}
+				Photo.should_receive(:update_all).with(['position = ?', 1], ['id = ?', "1"])
+				Photo.should_receive(:update_all).with(['position = ?', 2], ['id = ?', "2"])
+				Photo.should_receive(:update_all).with(['position = ?', 3], ['id = ?', "3"])
+				post :sort, params
+			end
+
+			it "should set new position for photos in other order" do
+				params = {:photos => ["3", "1", "2"]}
+				Photo.should_receive(:update_all).with(['position = ?', 1], ['id = ?', "3"])
+				Photo.should_receive(:update_all).with(['position = ?', 2], ['id = ?', "1"])
+				Photo.should_receive(:update_all).with(['position = ?', 3], ['id = ?', "2"])
+				post :sort, params
+			end
+		end
 	end
 
-	describe_without_authentication Photo
+	describe_without_authentication Photo, [:sort, :reset_rating]
 end

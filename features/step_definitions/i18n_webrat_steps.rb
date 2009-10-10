@@ -18,7 +18,7 @@ When /^I fill in "([^\"]*)" for "([^\"]*)"$/ do |value, field|
   fill_in(t(field), :with => value)
 end
 
-When /^I attach the file at "(.*?)" to "(.*?)"(?: with content type "(.*?)")?$/ do |path, field, content_type|
+When /^I attach the file(?: as "(.*?)")? at "(.*?)" to "(.*?)"$/ do |content_type, path, field|
   attach_file(t(field), path, content_type)
 end
 

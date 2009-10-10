@@ -7,11 +7,5 @@
 		<em><%= time_viewer album %></em>
 		<div><%=h album.description %></div>
 	</div>
-	<% if admin? %>
-		<div>
-			<%= link_to t(:edit), edit_album_path(album) %>
-			<%= link_to t(:delete), album, :confirm => t(:confirm), :method => :delete %>
-		</div>
-	<% end %>
 	<div class="clear"></div>
 <% end %>

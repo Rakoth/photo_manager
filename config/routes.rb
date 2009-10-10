@@ -26,7 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   #     products.resources :comments
   #     products.resources :sales, :collection => { :recent => :get }
   #   end
-	map.resources :photos, :collection => {:without_album => :get}, :member => {:reset_rating => :delete}
+	map.resources :photos, :collection => {:without_album => :get, :sort => :put}, :member => {:reset_rating => :delete}
 	map.resources :albums, :member => {:add_photos => :get, :create_photos => :post, :cover => :put}
 	map.resources :categories
 	map.resources :comments, :member => {:spam => :put, :ham => :put}, :collection => {:delete_spam => :delete}

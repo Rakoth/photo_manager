@@ -1,6 +1,5 @@
-<div id="single_photo">
-  <%= link_to_unless_current photo_image(photo, style),
-		photo,
-		:title => t('.photo_title', :comments => photo.comments.size)
-	%>
-</div>
+<% div_for photo do %>
+	<%= link_to_unless_current photo_image(photo, style), photo,
+		:title => t('.photo_title', :comments => photo.comments.size) %>
+	<%= content_tag :span, "[drag]", :class => "photo_handle" if admin? and :thumb == style %>
+<% end %>
