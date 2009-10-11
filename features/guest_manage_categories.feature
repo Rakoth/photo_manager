@@ -5,7 +5,10 @@ Feature: Guest Manage Categories
 	I want to see categories
 
 	Scenario: Categories List
-		Given I have categories titled Nature, Walk
+		Given I have categories:
+			| title  | description    |
+			| Nature | Natures photos |
+			| Walk   | Walk photos    |
 		When I go to the list of categories
 		Then I should see a link to "Nature" category 
 		And I should see a link to "Walk" category

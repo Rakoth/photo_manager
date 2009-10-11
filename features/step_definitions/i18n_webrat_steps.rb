@@ -1,20 +1,20 @@
-When /^I press "([^\"]*)"$/ do |button|
+When /^I press "(.*?)"$/ do |button|
   click_button(t button)
 end
 
-When /^I follow "([^\"]*)"$/ do |link|
+When /^I follow "(.*?)"$/ do |link|
   click_link(t link)
 end
 
-When /^I follow "([^\"]*)" within "([^\"]*)"$/ do |link, parent|
+When /^I follow "(.*?)" within "(.*?)"$/ do |link, parent|
   click_link_within(parent, t(link))
 end
 
-When /^I fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
+When /^I fill in "(.*?)" with "(.*?)"$/ do |field, value|
   fill_in(t(field), :with => value)
 end
 
-When /^I fill in "([^\"]*)" for "([^\"]*)"$/ do |value, field|
+When /^I fill in "(.*?)" for "(.*?)"$/ do |value, field|
   fill_in(t(field), :with => value)
 end
 
@@ -22,17 +22,22 @@ When /^I attach the file(?: as "(.*?)")? at "(.*?)" to "(.*?)"$/ do |content_typ
   attach_file(t(field), path, content_type)
 end
 
-Then /^I should see "([^\"]*)"$/ do |text|
+When /^I check "(.*?)"$/ do |field|
+  check(t field)
+end
+
+Then /^I should see "(.*?)"$/ do |text|
   response.should contain(t text)
 end
 
-Then /^I should not see "([^\"]*)"$/ do |text|
+Then /^I should not see "(.*?)"$/ do |text|
   response.should_not contain(t text)
 end
 
 def t path
-	translated = I18n.t(path, :scope => [:activerecord, :attributes])
-	translated = I18n.t(path) if translated.include?('translation missing')
-	translated = path if translated.include?('translation missing')
-	translated
+	word = I18n.t(path)
+	word = I18n.t(path, :scope => [:activerecord, :attributes]) if word.include?('translation missing')
+	word = I18n.t(path, :scope => [:activerecord, :errors]) if word.include?('translation missing')
+	word = path if word.include?('translation missing')
+	word
 end

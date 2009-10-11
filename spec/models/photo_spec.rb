@@ -10,9 +10,7 @@ describe Photo do
 			:image => File.new('./spec/fixtures/images/test.png')
     }
 
-    @it = Photo.new(@valid_attributes)
-		@it.stub!(:save_attached_files).and_return true
-		@it.save!
+    @it = Photo.create!(@valid_attributes)
   end
 
   it "should not create a new instance given invalid attributes" do

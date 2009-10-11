@@ -23,6 +23,7 @@ describe AlbumsController do
 				assign :album
 				create :album
 				redirect 'add_photos_album_url(mock_album)'
+				notice
 			end
 
 			describe "with invalid params" do

@@ -6,7 +6,9 @@ module AlbumsHelper
 	end
 
 	def this_category_link category
-		link_to image_tag('mail.gif') + category.title, category, :title => t(:current_category)
+		unless category.nil?
+			link_to image_tag('mail.gif') + category.title, category_path(category), :title => t(:current_category)
+		end
 	end
 
 	def time_viewer object

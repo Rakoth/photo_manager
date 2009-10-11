@@ -99,9 +99,9 @@ When /^I select "([^\"]*)" as the "([^\"]*)" date$/ do |date, date_label|
   select_date(date, :from => date_label)
 end
 
-When /^I check "([^\"]*)"$/ do |field|
-  check(field) 
-end
+#When /^I check "([^\"]*)"$/ do |field|
+#  check(field)
+#end
 
 When /^I uncheck "([^\"]*)"$/ do |field|
   uncheck(field) 

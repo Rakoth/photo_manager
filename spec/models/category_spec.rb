@@ -3,7 +3,6 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Category do
 	before do
 		@it = Category.new
-		@it.stub!(:save_attached_files).and_return true
 	end
 
   it "should create a new instance given valid attributes" do

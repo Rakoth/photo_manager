@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-	before_filter :find_album, :except => [:index, :new, :create]
+	before_filter :find_album, :except => [:index, :new, :create, :edit]
 
   def index
     @albums = Album.all
@@ -28,6 +28,10 @@ class AlbumsController < ApplicationController
 			render :new
 		end
   end
+
+	def edit
+		@album = Album.find params[:id], :include => :photos
+	end
 
   def update
 		if @album.update_attributes(params[:album])

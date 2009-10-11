@@ -1,31 +1,16 @@
-#Given /^the following albums:$/ do |albums|
-#  Album.create!(albums.hashes)
-#end
-#
-#When /^I delete the (\d+)(?:st|nd|rd|th) album$/ do |pos|
-#  visit albums_url
-#  within("table > tr:nth-child(#{pos.to_i+1})") do
-#    click_link "Destroy"
-#  end
-#end
-#
-#Then /^I should see the following albums:$/ do |expected_albums_table|
-#  expected_albums_table.diff!(table_at('table').to_a)
-#end
+Given /^I have (some|\d+) photos in "(.*?)" album$/ do |value, title|
+  album = Album.find_by_title(title)
+	count = ("some" == value ? 5 : value.to_i)
+	count.times { Factory.create(:photo, :album => album) }
+end
 
-Given /^I have albus titled (.*?) in "(.*?)" category$/ do |albums, category_title|
-	category = Factory.create(:category, :title => category_title)
-  albums.split(', ').each do |title|
-		Factory.create(:album, :title => title, :category => category)
+Then /^I should see links to all "(.*?)" album photos$/ do |title|
+  Album.find_by_title(title).photos.each do |photo|
+		response_body.should have_tag("a[href=?]", photo_path(photo))
 	end
 end
 
-When /^I delete the "(.*?)" album$/ do |title|
-  visit album_path(Album.find_by_title(title))
-	click_link "Delete"
+Then /^I should have first photo in "(.*?)" album as its cover$/ do |title|
+	album = Album.find_by_title(title)
+  album.cover.should == album.photos.first
 end
-
-Then /^I should have (\d+) album in "(.*?)" category$/ do |count, title|
-  Category.find_by_title(title).albums.count.should == count.to_i
-end
-
