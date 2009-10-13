@@ -114,6 +114,7 @@ ru:
       
   activerecord:
     models:
+      order: Заказ фотосессии
       photo: Фотография
       album: Альбом
       category: Категория

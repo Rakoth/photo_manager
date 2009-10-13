@@ -1,6 +1,18 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe CommentsController do
+	describe "GET 'index'" do
+		before do
+			authenticate
+			3.times {Factory.create(:comment)}
+			get :index
+		end
+
+		it "should mark all new comments as viewed" do
+			Comment.unwatched.count.should == 0
+		end
+	end
+	
 	describe "POST 'create'" do
 		before do
 			@comment = Comment.new

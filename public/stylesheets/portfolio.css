@@ -78,7 +78,9 @@ a:hover{text-decoration:underline;}
 #contact_me{
 	background-image:url('/images/background/sections/contact_me.gif');
 }
-
+.new_count{
+	font:bold 12px monospase;
+}
 #photos{
 	margin:10px;
 	padding:0;

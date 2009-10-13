@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 
 	def index
 		@comments = Comment.all
+		Comment.unwatched.update_all :view_at => Time.now
 	end
 
 	def new

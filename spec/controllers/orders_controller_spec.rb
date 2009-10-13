@@ -50,7 +50,7 @@ describe OrdersController do
 			assign :orders
 
 			it "should mark all orders as viewed" do
-				Order.all.all?{|order| !order.view_at.nil? }.should == true
+				Order.unwatched.count.should == 0
 			end
 		end
 
@@ -67,10 +67,7 @@ describe OrdersController do
 		end
 		
 		describe "DELETE 'delete_expired'" do
-			before do
-				delete :delete_expired
-			end
-			
+			before { delete :delete_expired }
 			redirect 'orders_url'
 			notice
 			

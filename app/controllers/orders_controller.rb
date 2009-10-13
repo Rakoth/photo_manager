@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def index
 		@orders = Order.all :order => 'created_at DESC'
-		Order.update_all ['view_at = ?', Time.now]
+		Order.unwatched.update_all ['view_at = ?', Time.now]
   end
 
   def new
