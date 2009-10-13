@@ -31,6 +31,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.resources :categories
 	map.resources :comments, :member => {:spam => :put, :ham => :put}, :collection => {:delete_spam => :delete}
 	map.resources :ratings
+	map.resources :orders, :collection => {:delete_expired => :delete}
 	map.resource :session, :only => [:new, :create, :destroy], :controller => :session
 
   # Sample resource route within a namespace:

@@ -21,4 +21,4 @@ Feature: Guest Manage Albums
 			And I am on "First" album page
 		Then I should see "First"
 			And I should see "First photos"
-			And I should see links to all "First" album photos
+			And I should see links to all photos in "First" album

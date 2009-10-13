@@ -26,6 +26,10 @@ When /^I check "(.*?)"$/ do |field|
   check(t field)
 end
 
+When /^I select "([^\"]*)" as the "([^\"]*)" date and time$/ do |datetime, datetime_label|
+  select_datetime(datetime, :from => t(datetime_label))
+end
+
 Then /^I should see "(.*?)"$/ do |text|
   response.should contain(t text)
 end

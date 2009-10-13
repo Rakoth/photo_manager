@@ -21,6 +21,11 @@ module ApplicationHelper
 		mail_to AppConfig.admin_email, email_image, :encode => :javascript
 	end
 
+	def new_count model
+		count = model.unwatched.count
+		0 == count ? "" : content_tag(:span, " (#{count})", :class => :new_count)
+	end
+
 	protected
 
 	def email_image

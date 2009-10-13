@@ -67,9 +67,9 @@ end
 # The following steps would fill out the form:
 # When I select "November 23, 2004 11:20" as the "Preferred" date and time
 # And I select "November 25, 2004 10:30" as the "Alternative" date and time
-When /^I select "([^\"]*)" as the "([^\"]*)" date and time$/ do |datetime, datetime_label|
-  select_datetime(datetime, :from => datetime_label)
-end
+#When /^I select "([^\"]*)" as the "([^\"]*)" date and time$/ do |datetime, datetime_label|
+#  select_datetime(datetime, :from => datetime_label)
+#end
 
 # Use this step in conjunction with Rail's time_select helper. For example:
 # When I select "2:20PM" as the time

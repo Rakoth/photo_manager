@@ -1,0 +1,9 @@
+<tr id="<%= dom_id order %>">
+	<td><%=h order.name %></td>
+	<td><%=h order.start_at.nil? ? "" : l(order.start_at, :format => :smart) %></td>
+	<td><%=h order.email %></td>
+	<td><%=h order.phone %></td>
+	<td><%=h order.icq %></td>
+	<td><%=h order.description %></td>
+	<td><%= link_to_remote "Delete", :url => order, :method => :delete %></td>
+</tr>

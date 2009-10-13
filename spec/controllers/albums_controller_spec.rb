@@ -120,5 +120,5 @@ describe AlbumsController do
 		end
 	end
 
-	describe_without_authentication Album, [:add_photos]
+	describe_without_authentication Album, :protected => [:add_photos]
 end

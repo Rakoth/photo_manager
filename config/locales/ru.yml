@@ -20,6 +20,16 @@ ru:
   previous_photo: Предыдущая фотография
   next_photo: Следующая фотография
 
+  orders:
+    flash:
+      created: Ваш заказ принят, я свяжусь с Вами в ближайшее время
+      creating_failed: Сохранить Ваш заказ не удалось, Проверьте правильность введенных данных и попробуйте еще раз
+      expired_deleted: Все просроченные заказы удалены
+    index:
+      title: Заказы на фотосессию
+    new:
+      title: Заказ фотосессии
+
   ratings:
     flash:
       created: Ваш голос защитан
@@ -109,6 +119,13 @@ ru:
       category: Категория
       comment: Комментарий
     attributes:
+      order:
+        name: Ваше Имя
+        email: Электронная почта
+        phone: Телефон
+        icq: Номер ICQ
+        start_at: Начало события
+        description: Описание
       photo:
         _delete: Удалить
         description: Описание

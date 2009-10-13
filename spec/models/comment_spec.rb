@@ -109,4 +109,22 @@ describe Comment do
 			Comment.count(:conditions => {:spam => true}).should == 0
 		end
 	end
+
+	describe "unwatched" do
+		before do
+			Comment.delete_all
+			3.times { Factory.create :comment }
+			3.times { Factory.create :comment, :view_at => Time.now }
+		end
+
+		it "should return all new orders" do
+			Comment.unwatched.count.should == 3
+		end
+
+		it "should return only new orders" do
+			Comment.unwatched.each do |comment|
+				comment.view_at.should be_nil
+			end
+		end
+	end
 end

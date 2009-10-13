@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090930174029) do
+ActiveRecord::Schema.define(:version => 20091013003752) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20090930174029) do
     t.string   "user_agent"
     t.string   "referrer"
     t.integer  "photo_id"
+    t.datetime "view_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,6 +55,18 @@ ActiveRecord::Schema.define(:version => 20090930174029) do
     t.datetime "locked_at"
     t.datetime "failed_at"
     t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.integer  "icq"
+    t.text     "description"
+    t.datetime "start_at"
+    t.datetime "view_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

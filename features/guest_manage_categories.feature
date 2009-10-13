@@ -17,6 +17,8 @@ Feature: Guest Manage Categories
 		Given I have category:
 			| title  | description    |
 			| Nature | Natures photos |
-		And I am on "Nature" category page
+			And I have some albums in "Nature" category
+			And I am on "Nature" category page
 		Then I should see "Nature"
-		And I should see "Natures photos"
+			And I should see "Natures photos"
+			And I should see links to all albums in "Nature" category

@@ -13,6 +13,7 @@ class CreateComments < ActiveRecord::Migration
 			t.string :referrer
 			
       t.references :photo
+			t.datetime :view_at
 
       t.timestamps
     end

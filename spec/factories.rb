@@ -15,7 +15,6 @@ end
 Factory.define :comment do |f|
 	f.author "Commenter"
 	f.author_email "commenter@comment.com"
-	f.author_url "commenter.comment.com"
 	f.content "Comment Content"
 	f.association :photo
 	f.referrer "mail.ru"
@@ -29,4 +28,8 @@ Factory.define :rating do |f|
 	f.user_agent "Mozilla Firefox"
 	f.association :photo
 	f.sequence(:user_ip){|n| "10.0.0.#{n}" }
+end
+
+Factory.define :order do |f|
+	f.sequence(:email) {|n| "test_#{n}@test.te" }
 end

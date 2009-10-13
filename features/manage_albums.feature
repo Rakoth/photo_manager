@@ -5,7 +5,7 @@ Feature: Manage albums
 	I want to create and manage albums
 
 	Background:
-		Given I am loged in as admin
+		Given I am logged in as admin
 
 	Scenario Outline: Creating album
     Given I am on the new album page

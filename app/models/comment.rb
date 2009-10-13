@@ -8,6 +8,8 @@ class Comment < ActiveRecord::Base
 	before_create :check_for_spam
 	before_save :add_protocol_to_author_url
 
+	named_scope :unwatched, :conditions => {:view_at => nil}
+
 	has_rakismet
 
 	def request=(request)

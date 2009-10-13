@@ -5,7 +5,7 @@ Feature: Manage Categories
 	I want to create and manage categories
 
 	Background:
-		Given I am loged in as admin
+		Given I am logged in as admin
 
 	Scenario: Create valid category
 		Given I am on the new category page

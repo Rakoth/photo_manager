@@ -28,7 +28,7 @@ config.action_mailer.delivery_method = :test
 # config.active_record.schema_format = :sql
 
 config.gem "rspec", :lib => false, :version => ">=1.2.2"
-config.gem "rspec-rails", :lib => false, :version => ">=1.2.2"
-config.gem "webrat", :lib => false, :version => ">=0.4.3"
-config.gem "cucumber", :lib => false, :version => ">=0.3.0"
+config.gem "rspec-rails", :lib => 'spec/rails', :version => ">=1.2.2"
+config.gem "webrat", :version => ">=0.5.0"
+config.gem "cucumber", :version => ">=0.3.0"
 config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"

@@ -11,6 +11,11 @@ module NavigationHelpers
     when /the homepage/
       '/'
 
+    when /the new order page/
+      new_order_path
+		when /the list of orders page/
+			orders_path
+
     when /the new category page/
       new_category_path
 		when /the list of categories/

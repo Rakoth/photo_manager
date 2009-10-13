@@ -85,5 +85,5 @@ describe PhotosController do
 		end
 	end
 
-	describe_without_authentication Photo, [:sort, :reset_rating]
+	describe_without_authentication Photo, :protected => [:sort, :reset_rating]
 end
