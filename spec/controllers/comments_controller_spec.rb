@@ -8,6 +8,10 @@ describe CommentsController do
 			get :index
 		end
 
+		success
+		template :index
+		assign :comments
+
 		it "should mark all new comments as viewed" do
 			Comment.unwatched.count.should == 0
 		end

@@ -9,3 +9,17 @@ class Photo < ActiveRecord::Base
 		true
 	end
 end
+
+class Comment < ActiveRecord::Base
+	def spam?
+		false
+	end
+
+	def spam!
+		true
+	end
+
+	def ham!
+		true
+	end
+end
