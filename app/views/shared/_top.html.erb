@@ -1,5 +1,8 @@
 <div id="top">
-  <div id="head">
+  <div id="logo">
+    <%= link_to_unless_current image_tag('logo.png'), root_path %>
+  </div>
+  <div id="caption">
     <%= yield(:caption).blank? ? t(:default_caption) : yield(:caption) %>
   </div>
 </div>

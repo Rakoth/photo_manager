@@ -7,7 +7,7 @@ module AlbumsHelper
 
 	def this_category_link category
 		unless category.nil?
-			link_to image_tag('mail.gif') + category.title, category_path(category), :title => t(:current_category)
+			link_to hover_image_tag('icons/category.png') + category.title, category_path(category), :title => t(:current_category)
 		end
 	end
 
