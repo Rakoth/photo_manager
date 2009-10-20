@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-	acts_as_list
+	acts_as_list :scope => :album
 	
   belongs_to :album
 	has_many :comments, :conditions => {:spam => false}, :dependent => :delete_all
@@ -56,13 +56,8 @@ class Photo < ActiveRecord::Base
 		@can_be_rated ||= ratings.build(:request => user_request, :value => 1).valid?
 	end
 
-	def next
-		@next ||= album.next_photo(self)
-	end
-
-	def previous
-		@previous ||= album.previous_photo(self)
-	end
+	alias_method :next, :lower_item
+	alias_method :previous, :higher_item
 
 	protected
 

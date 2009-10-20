@@ -3,9 +3,9 @@ class CreatePhotos < ActiveRecord::Migration
     create_table :photos do |t|
       t.string :description
       t.references :album
-			t.datetime :deleted_at
 			t.integer :comments_count, :default => 0
 			t.integer :position
+			t.boolean :bathe, :default => false
 
       t.timestamps
     end

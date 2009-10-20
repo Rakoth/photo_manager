@@ -1,27 +1,29 @@
 <% title t('.title', :id => @photo.id) %>
 
 <% @admin_menu = [
-  link_to("Edit", edit_photo_path(@photo)),
-  link_to_remote("Reset Rating", :url => reset_rating_photo_path(@photo), :method => :delete),
-  link_to("Delete", photo_path(@photo), :method => :delete, :confirm => t(:confirm))
+	link_to("Edit", edit_photo_path(@photo)),
+	link_to_remote("Reset Rating", :url => reset_rating_photo_path(@photo), :method => :delete),
+	link_to("Delete", photo_path(@photo), :method => :delete, :confirm => t(:confirm))
 ]%>
 
-<% menu this_category_link(@photo.album.category),
-  this_album_link(@photo.album),
-  previous_photo_link(@photo),
-  next_photo_link(@photo)
+<% menu this_category_link(@photo.album.nil? ? nil : @photo.album.category),
+	this_album_link(@photo.album),
+	previous_photo_link(@photo),
+	next_photo_link(@photo)
 %>
 
 <%= render :partial => 'photo', :object => @photo, :locals => {:style => :normal} %>
 
+<%= link_to t(:bathe_photo), buy_photo_path(@photo) if @photo.bathe? %>
+
 <%= render :partial => 'rating_photo' %>
 
 <% if @photo.comments.any? %>
-  <h3><%=t '.comments' %></h3>
+	<h3><%=t '.comments' %></h3>
 <% end %>
 
 <div id="comments">
-  <%= render :partial => 'comments/comment', :collection => @photo.comments, :locals => {:with_photo => false} %>
+	<%= render :partial => 'comments/comment', :collection => @photo.comments, :locals => {:with_photo => false} %>
 </div>
 <h3><%=t '.add_comment' %></h3>
 <%= render :partial => 'comments/form', :locals => {:comment => Comment.new} %>

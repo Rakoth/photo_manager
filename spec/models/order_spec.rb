@@ -7,6 +7,7 @@ describe Order do
       :email => "value@email.for",
       :phone => "+79046423621",
       :icq => 123451234,
+			:place => 'place',
       :description => "value for description",
       :start_at => Time.now
     }
@@ -39,8 +40,8 @@ describe Order do
       :description => "value for description",
       :start_at => Time.now
     }
-		@it = Order.create(@valid_attributes)
-		@it.should be_a_new_record
+		@it = Order.new(@valid_attributes)
+		@it.should_not be_valid
 	end
 
 	describe "unwatched" do

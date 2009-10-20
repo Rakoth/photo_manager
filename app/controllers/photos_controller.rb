@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
 	before_filter :find_photo, :except => [:index, :new, :create, :sort]
+	before_filter :check_bathe_photo, :only => :buy
+	before_filter :authenticate, :except => [:index, :show, :buy]
 
 	def index
 		@photos = Photo.all
@@ -53,5 +55,12 @@ class PhotosController < ApplicationController
 
 	def find_photo
 		@photo = Photo.find params[:id]
+	end
+
+	def check_bathe_photo
+		unless @photo.bathe?
+			flash[:error] = t 'photos.flash.cant_buy'
+			redirect_to @photo
+		end
 	end
 end

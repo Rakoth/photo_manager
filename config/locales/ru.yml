@@ -1,5 +1,4 @@
 ru:
-  hello: Превед
   save: Сохранить
   edit: Редактировать
   default_title: Фото от Lutic
@@ -19,6 +18,7 @@ ru:
   current_album: Этот альбом
   previous_photo: Предыдущая фотография
   next_photo: Следующая фотография
+  bathe_photo: Вы можете приобрести эту фотографию
 
   orders:
     flash:
@@ -99,6 +99,7 @@ ru:
       created: Фотография успешно добавлена
       creating_failed: Не удалось добавить фотографию
       deleted: Фотография удалена
+      cant_buy: Эта фотография не продается
     index:
       title: Фотографии
     new:
@@ -111,6 +112,8 @@ ru:
       current_rating: "Текущий рейтинг этой фотографии: {{value}}"
     photo:
       photo_title: "Комментариев: {{comments}}"
+    buy:
+      title: Покупка фотографии
       
   activerecord:
     models:
@@ -126,8 +129,10 @@ ru:
         phone: Телефон
         icq: Номер ICQ
         start_at: Начало события
+        place: Место проведения
         description: Описание
       photo:
+        bathe: Продается
         _delete: Удалить
         description: Описание
         image: Картинка
@@ -191,11 +196,6 @@ ru:
 
   support:
     array:
-      # Rails 2.2
-      sentence_connector: "и"
-      skip_last_comma: true
-
-      # Rails 2.3
       words_connector: ", "
       two_words_connector: " и "
       last_word_connector: " и "

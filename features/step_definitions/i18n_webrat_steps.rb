@@ -30,6 +30,14 @@ When /^I select "([^\"]*)" as the "([^\"]*)" date and time$/ do |datetime, datet
   select_datetime(datetime, :from => t(datetime_label))
 end
 
+When /^I uncheck "([^\"]*)"$/ do |field|
+  uncheck(t field)
+end
+
+When /^I choose "([^\"]*)"$/ do |field|
+  choose(t field)
+end
+
 Then /^I should see "(.*?)"$/ do |text|
   response.should contain(t text)
 end

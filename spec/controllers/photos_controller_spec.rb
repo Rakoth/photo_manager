@@ -16,7 +16,7 @@ describe PhotosController do
 			describe "with valid params" do
 				before do
 					@photo.stub!(:valid?).and_return(true)
-					post 'create'
+					post :create
 				end
 
 				create :photo
@@ -27,7 +27,7 @@ describe PhotosController do
 			describe "with invalid params" do
 				before do
 					@photo.stub!(:valid?).and_return(false)
-					post 'create'
+					post :create
 				end
 
 				build :photo
@@ -41,12 +41,12 @@ describe PhotosController do
 			before do
 				@photo = mock_model(Photo, :destroy => true)
 				Photo.stub!(:find).and_return @photo
-				delete 'destroy'
+				delete :destroy
 			end
 
 			it "should delete the photo" do
 				@photo.should_receive(:destroy)
-				delete 'destroy'
+				delete :destroy
 			end
 
 			redirect
@@ -82,6 +82,29 @@ describe PhotosController do
 				Photo.should_receive(:update_all).with(['position = ?', 3], ['id = ?', "2"])
 				post :sort, params
 			end
+		end
+	end
+
+	describe "GET buy" do
+		describe "with bathe photo" do
+			before do
+				@photo = Factory.create(:photo, :bathe => true)
+				get :buy, :id => @photo.id
+			end
+
+			success
+			template :buy
+			assign :photo
+		end
+
+		describe "with not bathe photo" do
+			before do
+				@photo = Factory.create(:photo, :bathe => false)
+				get :buy, :id => @photo.id
+			end
+
+			redirect
+			error
 		end
 	end
 

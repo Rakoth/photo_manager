@@ -1,8 +1,8 @@
 <% title t('.title') %>
 <%= error_messages_for :photo, :header_message => nil %>
 <% form_for @photo, :html => { :multipart => true } do |form| %>
-  <%= render :partial => 'form', :locals => {:form => form} %>
+  <%= render :partial => 'form', :object => form %>
   <p>
-    <%= form.submit t(:save) %>
+    <%= form.submit t(:submit) %>
   </p>
 <% end %>
