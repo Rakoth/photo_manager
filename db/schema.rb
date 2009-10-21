@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20091013003752) do
     t.string   "email"
     t.string   "phone"
     t.integer  "icq"
+    t.text     "place"
     t.text     "description"
     t.datetime "start_at"
     t.datetime "view_at"
@@ -74,9 +75,9 @@ ActiveRecord::Schema.define(:version => 20091013003752) do
   create_table "photos", :force => true do |t|
     t.string   "description"
     t.integer  "album_id"
-    t.datetime "deleted_at"
     t.integer  "comments_count",     :default => 0
     t.integer  "position"
+    t.boolean  "bathe",              :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"

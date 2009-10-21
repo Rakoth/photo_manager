@@ -13,7 +13,7 @@ module ApplicationHelper
 
 	def home_link
 		link_to root_path do
-			hover_image_tag('icons/home.png') + t(:root)
+			image_tag_with_hover('icons/home.png') + t(:root)
 		end
 	end
 
@@ -26,14 +26,9 @@ module ApplicationHelper
 		0 == count ? "" : content_tag(:span, " (#{count})", :class => :new_count)
 	end
 
-  def hover_image_tag path, options = {}
-#    image_tag path, {:mouseover => image_path(path.gsub('.', '_hover.'))}.merge(options)
-    image_tag path, {:mouseover => image_path(path)}.merge(options)
-  end
-
 	protected
 
 	def email_image
-		hover_image_tag('icons/email.png') + t(:email)
+		image_tag_with_hover('icons/email.png') + t(:email)
 	end
 end

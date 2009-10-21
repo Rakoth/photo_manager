@@ -11,6 +11,11 @@ module NavigationHelpers
     when /the homepage/
       '/'
 
+    when /the new photo page/
+      new_photo_path
+    when /the photo page/
+      photo_path(Photo.first)
+
     when /the new order page/
       new_order_path
 		when /the list of orders page/

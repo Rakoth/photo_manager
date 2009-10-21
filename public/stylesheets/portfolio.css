@@ -178,6 +178,16 @@ a:hover{text-decoration:underline;}
 .album em{
     font-size:11px;
 }
+
 .photo{
     background-image:url('/images/background/caption.gif');
 }
+
+#new_order{
+	padding:10px;
+}
+#new_order div{
+	padding-left:20px;
+	text-align:center;
+}
+

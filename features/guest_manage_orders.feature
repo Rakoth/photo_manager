@@ -12,12 +12,13 @@ Feature: Manage orders
 			| order.phone       | <phone>       |
 			| order.icq         | <icq>         |
 			| order.email       | <email>       |
+			| order.place       | <place>       |
 			| order.description | <description> |
 			And I press "submit"
     Then I should see "<message>"
 			And I should have <count> orders
 		Examples:
-			| name  | email         | phone        | icq    | description  | message                      | count |
-			| guest | email@test.te | +70000000001 | 100100 | description1 | orders.flash.created         |   1   |
-			| guest |               | +70000000001 | 100100 | description1 | orders.flash.creating_failed |   0   |
-			| guest | invalid       | +70000000001 | 100100 | description1 | orders.flash.creating_failed |   0   |
+			| name  | email         | phone        | icq    | place  | description  | message                      | count |
+			| guest | email@test.te | +70000000001 | 100100 | place1 | description1 | orders.flash.created         |   1   |
+			| guest |               | +70000000001 | 100100 | place1 | description1 | orders.flash.creating_failed |   0   |
+			| guest | invalid       | +70000000001 | 100100 | place1 | description1 | orders.flash.creating_failed |   0   |

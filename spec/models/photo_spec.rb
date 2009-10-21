@@ -93,7 +93,7 @@ describe Photo do
 			photos(:with_comments).comments.should include(comments :not_spam_two)
 		end
 
-		it "should mot contain spam" do
+		it "should not contain spam" do
 			photos(:with_comments).comments.should_not include(comments :spam_one)
 		end
 	end

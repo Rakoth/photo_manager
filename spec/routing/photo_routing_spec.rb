@@ -41,6 +41,10 @@ describe PhotosController do
     it "maps #sort" do
       route_for(:controller => "photos", :action => "sort").should == {:path =>"/photos/sort", :method => :put}
     end
+
+    it "maps #buy" do
+      route_for(:controller => "photos", :action => "buy", :id => "1").should == {:path =>"/photos/1/buy", :method => :get}
+    end
   end
 
   describe "route recognition" do
@@ -80,8 +84,12 @@ describe PhotosController do
       params_from(:delete, "/photos/1/reset_rating").should == {:controller => "photos", :action => "reset_rating", :id => "1"}
     end
 
-    it "generates params for #reset_rating" do
+    it "generates params for #sort" do
       params_from(:put, "/photos/sort").should == {:controller => "photos", :action => "sort"}
+    end
+
+    it "generates params for #buy" do
+      params_from(:get, "/photos/1/buy").should == {:controller => "photos", :action => "buy", :id => "1"}
     end
   end
 end

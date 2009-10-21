@@ -9,6 +9,10 @@
       <%= render :partial => 'edit_photo', :locals => {:photo => photo, :photo_fields => photo_fields} %>
     <% end %>
     <p>
+      <%= photo_fields.label :bathe %>
+      <%= photo_fields.check_box :bathe %>
+    </p>
+    <p>
       <%= photo_fields.label :description %>
       <%= photo_fields.text_field :description %>
     </p>

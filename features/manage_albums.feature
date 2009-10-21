@@ -66,15 +66,19 @@ Feature: Manage albums
 			| First one! | albums.flash.updated |
 			|            | messages.blank       |
 
-	Scenario: Delete photos from edit album page
+	Scenario Outline: <action> from edit album page
 		Given I have album:
 			| title | description |
 			| First | First one!  |
 			And I have 3 photos in "First" album
 			And I am on the edit "First" album page
-		When I check "photo._delete"
+		When I check "<checkbox>"
 			And I press "submit"
-		Then I should have 2 photos in "First" album
+		Then I should have <result> in "First" album
+		Examples:
+			| action              | checkbox      | result        |
+			| Delete photos       | photo._delete | 2 photos      |
+			| Mark photo as bathe | photo.bathe   | 1 bathe photo |
 
   Scenario: Delete album
 		Given I have albums:
