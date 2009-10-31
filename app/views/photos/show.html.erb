@@ -14,7 +14,7 @@
 
 <%= render :partial => 'photo', :object => @photo, :locals => {:style => :normal} %>
 
-<%= link_to t(:bathe_photo), buy_photo_path(@photo) if @photo.bathe? %>
+<%= link_to t(:buy_photo), new_photo_purchase_path(@photo) if @photo.bathe? %>
 
 <%= render :partial => 'rating_photo' %>
 

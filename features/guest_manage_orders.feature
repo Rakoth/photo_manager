@@ -8,10 +8,10 @@ Feature: Manage orders
     Given I am on the new order page
 			And I have no orders
 		When I fill in the following:
-			| order.name        | <name>        |
-			| order.phone       | <phone>       |
-			| order.icq         | <icq>         |
-			| order.email       | <email>       |
+			| contact.name      | <name>        |
+			| contact.phone     | <phone>       |
+			| contact.icq       | <icq>         |
+			| contact.email     | <email>       |
 			| order.place       | <place>       |
 			| order.description | <description> |
 			And I press "submit"

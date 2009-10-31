@@ -27,12 +27,15 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 	map.resources :photos,
 		:collection => {:without_album => :get, :sort => :put},
-		:member => {:reset_rating => :delete, :buy => :get}
+		:member => {:reset_rating => :delete, :buy => :get} do |photo|
+		photo.resources :purchases, :only => [:new, :create]
+	end
 	map.resources :albums, :member => {:add_photos => :get, :create_photos => :post, :cover => :put}
 	map.resources :categories
 	map.resources :comments, :member => {:spam => :put, :ham => :put}, :collection => {:delete_spam => :delete}
 	map.resources :ratings
 	map.resources :orders, :collection => {:delete_expired => :delete}
+	map.resources :purchases, :only => [:index, :destroy], :collection => {:delete_all => :delete}
 	map.resource :session, :only => [:new, :create, :destroy], :controller => :session
 
   # Sample resource route within a namespace:

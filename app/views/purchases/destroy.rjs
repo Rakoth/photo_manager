@@ -1,0 +1,2 @@
+page.visual_effect :drop_out, dom_id(@purchase)
+page << "$('#{dom_id @purchase}').remove.delay(3);"

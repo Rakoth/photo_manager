@@ -1,28 +1,26 @@
 <% title t('.title') %>
 
 <% @admin_menu = [
-	link_to("Delete expired orders", delete_expired_orders_path, :method => :delete)
+	link_to("Delete purchases", delete_all_purchases_path, :method => :delete)
 ]%>
 
-<table id="orders">
+<table id="purchases">
 	<thead>
 		<tr>
 			<th>name</th>
-			<th>time</th>
 			<th>email</th>
 			<th>phone</th>
 			<th>icq</th>
 			<th>description</th>
-			<th>place</th>
 			<th>*</th>
 		</tr>
 	</thead>
 	<tbody>
-		<% if @orders.any? %>
-			<%= render @orders %>
+		<% if @purchases.any? %>
+			<%= render @purchases %>
 		<% else %>
 		<tr>
-			<td colspan="8">No orders yet</td>
+			<td colspan="6">No purchases yet</td>
 		</tr>
 		<% end %>
 	</tbody>

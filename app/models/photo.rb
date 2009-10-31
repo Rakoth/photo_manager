@@ -5,6 +5,7 @@ class Photo < ActiveRecord::Base
 	has_many :comments, :conditions => {:spam => false}, :dependent => :delete_all
 	has_many :spams, :conditions => {:spam => true}, :class_name => 'Comment', :dependent => :delete_all
 	has_many :ratings, :dependent => :delete_all
+	has_many :purchases
 
   has_attached_file :image,
 		:styles => {:normal => "700x465", :thumb=> "125x125#", :small => "110x75#"},

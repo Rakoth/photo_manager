@@ -30,7 +30,6 @@ describe OrdersController do
 			end
 
 			success
-			error
 			template :new
 			build :order
 		end

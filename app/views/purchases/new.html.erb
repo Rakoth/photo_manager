@@ -1,0 +1,13 @@
+<% title t('.title') %>
+
+<% form_for [@photo, @purchase] do |form| %>
+	<%= form.error_messages %>
+	<% form.fields_for :contact do |contact| %>
+		<%= render :partial => 'contacts/contact', :locals => {:form => contact} %>
+	<% end %>
+	<p>
+		<%= form.label :description %><br />
+		<%= form.text_area :description %>
+	</p>
+	<%= form.submit t(:submit) %>
+<% end %>

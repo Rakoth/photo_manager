@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def new
-		@order = Order.new
+		@order = Order.new :contact => Contact.new
   end
 
 	def create
@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 			flash[:notice] = t 'orders.flash.created'
 			redirect_to root_url
 		else
-			flash[:error] = t 'orders.flash.creating_failed'
+			flash.now[:error] = t 'orders.flash.creating_failed'
 			render :new
 		end
 	end

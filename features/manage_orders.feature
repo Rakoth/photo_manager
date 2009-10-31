@@ -9,16 +9,16 @@ Feature: Manage orders
   
   Scenario: Show orders List
 		Given I have orders:
-			| name       | email          |
-			| customer 1 | email1@test.te |
-			| customer 2 | email2@test.te |
+			| place | description |
+			| plac1 | descriptio1 |
+			| plac2 | descriptio2 |
 			And I am on the homepage
 			And I follow "Orders"
 		Then I should see "orders.index.title"
-			And I should see "customer 1"
-			And I should see "customer 2"
-			And I should see "email1@test.te"
-			And I should see "email2@test.te"
+			And I should see "plac1"
+			And I should see "plac2"
+			And I should see "descriptio1"
+			And I should see "descriptio2"
 
 	Scenario: Delete all expired orders
 		Given I have some expired orders

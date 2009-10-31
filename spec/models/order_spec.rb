@@ -3,10 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Order do
   it "should create a new instance given valid attributes" do
     @valid_attributes = {
-      :name => "value for name",
-      :email => "value@email.for",
-      :phone => "+79046423621",
-      :icq => 123451234,
+			:contact => Factory.create(:contact),
 			:place => 'place',
       :description => "value for description",
       :start_at => Time.now
@@ -16,32 +13,11 @@ describe Order do
 
 	it "should not create a new instance given invalid attributes" do
 		@invalid_attributes = {
-			:name => "n" * 256,
-			:phone => "0" * 256,
-			:email => "invalid",
-			:icq => "invalid"
+			:contact => nil
 		}
 		@it = Order.create(@invalid_attributes)
 		@it.should be_a_new_record
-		@it.should have(1).error_on(:name)
-		@it.should have(1).error_on(:email)
-		@it.should have(1).error_on(:phone)
-		@it.should have(1).error_on(:icq)
-	end
-
-	it "should validates uniqueness of email" do
-		email = 'test@test.te'
-		Factory.create(:order, :email => email)
-    @valid_attributes = {
-      :name => "value for name",
-      :email => email,
-      :phone => "+79046423621",
-      :icq => 123451234,
-      :description => "value for description",
-      :start_at => Time.now
-    }
-		@it = Order.new(@valid_attributes)
-		@it.should_not be_valid
+		@it.should have(1).error_on(:contact)
 	end
 
 	describe "unwatched" do

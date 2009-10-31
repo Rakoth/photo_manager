@@ -41,8 +41,8 @@ Then /^I should have (\d+) ([^\s]*) in "(.*?)" ([^\s]*)$/ do |count, assotiation
   klass(model).find_by_title(title).send(assotiation.pluralize).count.should == count.to_i
 end
 
-Then /^I should have (\d+) ([^\s]*)$/ do |count, model|
-  klass(model).count.should == count.to_i
+Then /^I should have (\d+|no) ([^\s]*)$/ do |count, model|
+  klass(model).should have(count.to_i).records
 end
 
 private

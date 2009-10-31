@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091013003752) do
+ActiveRecord::Schema.define(:version => 20091031003344) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(:version => 20091013003752) do
     t.datetime "updated_at"
   end
 
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.integer  "icq"
+    t.integer  "contactable_id"
+    t.string   "contactable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
     t.integer  "attempts",   :default => 0
@@ -60,10 +71,6 @@ ActiveRecord::Schema.define(:version => 20091013003752) do
   end
 
   create_table "orders", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone"
-    t.integer  "icq"
     t.text     "place"
     t.text     "description"
     t.datetime "start_at"
@@ -75,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20091013003752) do
   create_table "photos", :force => true do |t|
     t.string   "description"
     t.integer  "album_id"
+    t.datetime "deleted_at"
     t.integer  "comments_count",     :default => 0
     t.integer  "position"
     t.boolean  "bathe",              :default => false
@@ -85,6 +93,14 @@ ActiveRecord::Schema.define(:version => 20091013003752) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "processing",         :default => true
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.integer  "photo_id"
+    t.text     "description"
+    t.datetime "view_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ratings", :force => true do |t|

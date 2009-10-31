@@ -18,7 +18,17 @@ ru:
   current_album: Этот альбом
   previous_photo: Предыдущая фотография
   next_photo: Следующая фотография
-  bathe_photo: Вы можете приобрести эту фотографию
+  buy_photo: Вы можете приобрести эту фотографию
+
+  purchases:
+    flash:
+      deleted: Все заказы на покупку фотографий удалены
+      created: Ваш заказ принят, я свяжусь с Вами в ближайшее время
+      creating_failed: Сохранить Ваш заказ не удалось, Проверьте правильность введенных данных и попробуйте еще раз
+    new:
+      title: Покупка фотографии
+    index:
+      title: Заказы на покупку фотографий
 
   orders:
     flash:
@@ -122,12 +132,10 @@ ru:
       album: Альбом
       category: Категория
       comment: Комментарий
+      contact: Контакт
+      purchase: Покупка
     attributes:
       order:
-        name: Ваше Имя
-        email: Электронная почта
-        phone: Телефон
-        icq: Номер ICQ
         start_at: Начало события
         place: Место проведения
         description: Описание
@@ -148,6 +156,18 @@ ru:
         author_email: Электронный адрес
         author_url: Ссылка на Ваш сайт
         content: Комментарий
+      contact:
+        name: Ваше Имя
+        email: Электронная почта
+        phone: Телефон
+        icq: Номер ICQ
+        contact_name: Ваше Имя
+        contact_email: Электронная почта
+        contact_phone: Телефон
+        contact_icq: Номер ICQ
+      purchase:
+        description: Дополнительные сведения
+        
     errors:
       template:
         header:

@@ -31,5 +31,13 @@ Factory.define :rating do |f|
 end
 
 Factory.define :order do |f|
+	f.contact {|a| a.association(:contact) }
+end
+
+Factory.define :purchase do |f|
+	f.contact {|a| a.association(:contact) }
+end
+
+Factory.define :contact do |f|
 	f.sequence(:email) {|n| "test_#{n}@test.te" }
 end

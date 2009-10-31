@@ -1,9 +1,10 @@
 <tr id="<%= dom_id order %>">
-	<td><%=h order.name %></td>
+	<td><%=h order.contact.name %></td>
 	<td><%=h order.start_at.nil? ? "" : l(order.start_at, :format => :smart) %></td>
-	<td><%=h order.email %></td>
-	<td><%=h order.phone %></td>
-	<td><%=h order.icq %></td>
+	<td><%= mail_to h(order.contact.email), h(order.contact.email), :encode => :hex %></td>
+	<td><%=h order.contact.phone %></td>
+	<td><%=h order.contact.icq %></td>
 	<td><%=h order.description %></td>
+	<td><%=h order.place %></td>
 	<td><%= link_to_remote "Delete", :url => order, :method => :delete %></td>
 </tr>

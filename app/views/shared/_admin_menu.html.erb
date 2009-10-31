@@ -1,14 +1,21 @@
 <% @admin_menu ||= [] %>
+<% admin_menu_separator = content_tag(:li, tag(:hr, nil, false), :style => 'list-style:none;')%>
 <div id="admin_menu">
 	<ul>
+		<li><%= link_to "Comments#{new_count Comment}", comments_path %></li>
+		<li><%= link_to "Orders#{new_count Order}", orders_path %></li>
+		<li><%= link_to "Purchases#{new_count Purchase}", purchases_path %></li>
+		<%= admin_menu_separator %>
 		<li><%= link_to "New Category", new_category_path %></li>
 		<li><%= link_to "New Album", new_album_path %></li>
 		<li><%= link_to "New Photo", new_photo_path %></li>
-		<li><%= link_to "Comments", comments_path %><%= new_count Comment %></li>
-		<li><%= link_to "Orders", orders_path %><%= new_count Order %></li>
-		<% @admin_menu.each do |link| %>
-			<li><%= link %></li>
+		<% if @admin_menu.any? %>
+			<%= admin_menu_separator %>
+			<% @admin_menu.each do |link| %>
+				<li><%= link %></li>
+			<% end %>
 		<% end %>
+		<%= admin_menu_separator %>
 		<li><%= link_to "Logout", session_path, :method => :delete %></li>
 	</ul>
 </div>

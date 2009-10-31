@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
 	before_filter :find_photo, :except => [:index, :new, :create, :sort]
 	before_filter :check_bathe_photo, :only => :buy
-	before_filter :authenticate, :except => [:index, :show, :buy]
+	skip_before_filter :authenticate, :only => :buy
 
 	def index
 		@photos = Photo.all

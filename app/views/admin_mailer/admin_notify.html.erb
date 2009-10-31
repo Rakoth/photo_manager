@@ -1,0 +1,18 @@
+<h2>Вам поступил новый заказ на <%= @record.is_a?(Order) ? 'фотосессию' : 'покупку фотографии' %>!</h2>
+<br />
+<h3>Cведения о заказе:</h3>
+<strong>Контактные данные заказчика:</strong>
+<p>
+			Имя:               <%= @record.contact.name %><br />
+			Электронный адрес: <%= mail_to @record.contact.email %><br />
+			Телефон:           <%= @record.contact.phone %><br />
+			ICQ:               <%= @record.contact.icq %><br />
+</p>
+<strong>Описание:</strong>
+<p><%= @record.description %></p>
+<%- if @record.is_a?(Order) -%>
+<strong>Место:</strong>
+<p><%= @record.place %></p>
+<strong>Время проведения:</strong><%=l @record.start_at, :format => :smart  %>
+<%- end -%>
+

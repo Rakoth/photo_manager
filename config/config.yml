@@ -1,6 +1,6 @@
 development: &defaults
   images_in_row: 5
-  admin_email: elutic@gmail.com
+  admin_email: sashastanko@mail.ru
   category_preview_photos_count: 4
   password: "secret"
 
@@ -9,3 +9,4 @@ test:
 
 production:
   <<: *defaults
+  admin_email: elutic@gmail.com

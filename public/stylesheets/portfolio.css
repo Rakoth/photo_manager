@@ -13,6 +13,21 @@ ul{
 img{border:0;}
 a{color:#fff;text-decoration:none;outline:none;}
 a:hover{text-decoration:underline;}
+
+table{
+	width:96%;
+	background:#003f08;
+	margin:2%;
+}
+table th, td{
+	padding:2px;
+	background:#225f29;
+	text-align:center;
+}
+table td{
+	background:#9c0;
+}
+
 #top{
     height:129px;
     background-image:url('/images/background/top.jpg');
@@ -114,7 +129,7 @@ a:hover{text-decoration:underline;}
 
 #admin_menu{
     position:absolute;
-    top:150px;
+    top:270px;
     left:10px;
     width:15%;
     background-color:white;

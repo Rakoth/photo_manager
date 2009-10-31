@@ -8,18 +8,18 @@ Feature: Guest Manage Albums
 		Given I have photo:
 			| description  | bathe   |
 			| First photo  | <bathe> |
-			And I am on the photo page
+			And I am on the "First photo" photo page
 		Then I should see photo image with "normal" style
 			And I should <see> "<message>"
 		Examples:
 			| bathe | see     | message     |
-			| true  | see     | bathe_photo |
-			| false | not see | bathe_photo |
+			| true  | see     | buy_photo |
+			| false | not see | buy_photo |
 
 	Scenario: See buy photo page
 		Given I have photo:
 			| description  | bathe |
 			| First photo  | true  |
-			And I am on the photo page
-		When I follow "bathe_photo"
-		Then I should see "photos.buy.title"
+			And I am on the "First photo" photo page
+		When I follow "buy_photo"
+		Then I should see "purchases.new.title"

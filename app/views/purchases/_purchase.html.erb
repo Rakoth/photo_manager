@@ -1,0 +1,8 @@
+<tr id="<%= dom_id purchase %>">
+	<td><%=h purchase.contact.name %></td>
+	<td><%= mail_to h(purchase.contact.email), h(purchase.contact.email), :encode => :javascript %></td>
+	<td><%=h purchase.contact.phone %></td>
+	<td><%=h purchase.contact.icq %></td>
+	<td><%=h purchase.description %></td>
+	<td><%= link_to_remote "Delete", :url => purchase, :method => :delete %></td>
+</tr>

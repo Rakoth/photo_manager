@@ -11,10 +11,18 @@ module NavigationHelpers
     when /the homepage/
       '/'
 
+    when /the new purchase page/
+			photo = Photo.first || Factory.create(:photo)
+      new_photo_purchase_path(photo)
+    when /the list of purchases page/
+      purchases_path
+
     when /the new photo page/
       new_photo_path
-    when /the photo page/
-      photo_path(Photo.first)
+    when /the "(.*?)" photo page/
+      photo_path(Photo.find_by_description($1))
+    when /the buy "(.*?)" photo page/
+      buy_photo_path(Photo.find_by_description($1))
 
     when /the new order page/
       new_order_path
