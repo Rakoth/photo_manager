@@ -24,5 +24,36 @@ config.action_view.cache_template_loading            = true
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
 
+config.action_mailer.raise_delivery_errors = true
+
+config.action_mailer.perform_deliveries = true
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.default_charset = "utf-8"
+
+config.action_mailer.smtp_settings = {
+	:enable_starttls_auto => true,
+	:address => 'smtp.gmail.com',
+	:port => 587,
+  :user_name => "noreplay.ellephoto@gmail.com",
+  :password => "Qwerty@12",
+  :authentication => :plain
+}
+
 # Enable threaded mode
 # config.threadsafe!
+
+# LoggedExceptions authentication settings
+config.after_initialize do
+	LoggedExceptionsController.class_eval do
+		before_filter :authenticate
+
+		protected
+
+		def authenticate
+			unless AppConfig.password == session[:password]
+				flash[:error] = t 'application.flash.non_authorized'
+				redirect_to login_path
+			end
+		end
+	end
+end

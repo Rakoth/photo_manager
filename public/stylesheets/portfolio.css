@@ -22,7 +22,7 @@ table{
 table th, td{
 	padding:2px;
 	background:#225f29;
-	text-align:center;
+	text-align:left;
 }
 table td{
 	background:#9c0;
@@ -129,8 +129,8 @@ table td{
 
 #admin_menu{
     position:absolute;
-    top:270px;
-    left:10px;
+    top:100px;
+    left:85%;
     width:15%;
     background-color:white;
 }
@@ -204,5 +204,8 @@ table td{
 #new_order div{
 	padding-left:20px;
 	text-align:center;
+}
+.order{
+	padding:10px 20px;
 }
 

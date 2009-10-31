@@ -3,17 +3,13 @@
 <% @admin_menu = [
 	link_to("Delete expired orders", delete_expired_orders_path, :method => :delete)
 ]%>
-
-<table id="orders">
+<table>
 	<thead>
 		<tr>
-			<th>name</th>
-			<th>time</th>
-			<th>email</th>
-			<th>phone</th>
-			<th>icq</th>
-			<th>description</th>
-			<th>place</th>
+			<th>Contact</th>
+			<th>Time</th>
+			<th>Description</th>
+			<th>Place</th>
 			<th>*</th>
 		</tr>
 	</thead>
@@ -21,9 +17,9 @@
 		<% if @orders.any? %>
 			<%= render @orders %>
 		<% else %>
-		<tr>
-			<td colspan="8">No orders yet</td>
-		</tr>
+			<tr>
+				<td colspan="5">No orders yet!</td>
+			</tr>
 		<% end %>
 	</tbody>
 </table>

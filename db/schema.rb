@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091031003344) do
+ActiveRecord::Schema.define(:version => 20091031164113) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(:version => 20091031003344) do
     t.datetime "updated_at"
   end
 
+  create_table "logged_exceptions", :force => true do |t|
+    t.string   "exception_class"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.text     "message"
+    t.text     "backtrace"
+    t.text     "environment"
+    t.text     "request"
+    t.datetime "created_at"
+  end
+
   create_table "orders", :force => true do |t|
     t.text     "place"
     t.text     "description"
@@ -82,7 +93,6 @@ ActiveRecord::Schema.define(:version => 20091031003344) do
   create_table "photos", :force => true do |t|
     t.string   "description"
     t.integer  "album_id"
-    t.datetime "deleted_at"
     t.integer  "comments_count",     :default => 0
     t.integer  "position"
     t.boolean  "bathe",              :default => false
