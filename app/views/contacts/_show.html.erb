@@ -1,4 +1,6 @@
-<strong>Name: </strong> <%= contact.name %><br />
-<strong>Email: </strong> <%= mail_to h(contact.email), h(contact.email), :encode => :javascript  %><br />
-<strong>Phone: </strong> <%= contact.phone %><br />
-<strong>ICQ: </strong> <%= contact.icq %>
+<div>
+	<strong>Name: </strong> <%= contact.name %><br />
+	<strong>Email: </strong> <%= mail_to h(contact.email), h(contact.email), :encode => :javascript  %><br />
+	<strong>Phone: </strong> <%= contact.phone %><br />
+	<strong>ICQ: </strong> <%= contact.icq %>
+</div>
