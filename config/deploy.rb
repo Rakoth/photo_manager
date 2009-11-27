@@ -34,5 +34,5 @@ end
 after 'deploy:update_code', 'deploy:symlink_shared'
 
 def mongrel_initd action
-	run "/home/virtwww/w_elle-photo-ru_0ef9754e/init.d/mongrel #{action} #{rails_env}"
+	run "/home/virtwww/#{user}/init.d/mongrel #{action} #{rails_env}"
 end
