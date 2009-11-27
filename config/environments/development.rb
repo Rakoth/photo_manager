@@ -20,20 +20,11 @@ config.action_mailer.perform_deliveries = true
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.default_charset = "utf-8"
 
-#config.action_mailer.smtp_settings = {
-#	:enable_starttls_auto => true,
-#	:address => 'smtp.gmail.com',
-#	:port => 587,
-#  :user_name => "noreply.ellephoto@gmail.com",
-#  :password => "Qwerty@12",
-#  :authentication => :plain
-#}
-
 config.action_mailer.smtp_settings = {
 	:enable_starttls_auto => true,
-	:address => 'smtp-9.1gb.ru',
-	:port => 465,
-  :user_name => "u159267",
-  :password => "dcb0ecd0",
+	:address => 'smtp.gmail.com',
+	:port => 587,
+  :user_name => "noreply.ellephoto@gmail.com",
+  :password => "Qwerty@12",
   :authentication => :plain
 }
