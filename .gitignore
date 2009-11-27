@@ -8,3 +8,6 @@ nbproject/*
 nbproject/**/*
 public/system/*
 public/system/**/*
+config/database.yml
+config/config.yml
+

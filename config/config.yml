@@ -10,3 +10,15 @@ test:
 production:
   <<: *defaults
   admin_email: elutic@gmail.com
+
+deploy:
+  server: ftp.elle-photo-ru.1gb.ru
+  settings:
+    application: elle_photo
+    user: w_elle-photo-ru_0ef9754e
+    password: a823de63
+    scm: git
+    repository: "git://github.com/Rakoth/photo_manager.git"
+    deploy_to: /home/virtwww/w_elle-photo-ru_0ef9754e/elle_photo
+    use_sudo: false
+    rails_env: production
