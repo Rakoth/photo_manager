@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
 		@photo = Photo.new params[:photo]
 		if @photo.save
 			flash[:notice] = t 'photos.flash.created'
-			redirect_to photo_path @photo
+			redirect_to @photo
 		else
 			flash[:error] = t 'photos.flash.creating_failed'
 			render :new
