@@ -16,7 +16,7 @@
 			<% end %>
 		<% end %>
 		<%= admin_menu_separator %>
-		<li><%= link_to "Exceptions (#{LoggedException.count})", {:controller => 'logged_exceptions'}, :target => :blank %></li>
+		<li><%= link_to "App Errors (#{LoggedException.count})", {:controller => 'logged_exceptions'}, :target => :blank %></li>
 		<li><%= link_to "Logout", session_path, :method => :delete %></li>
 	</ul>
 </div>
