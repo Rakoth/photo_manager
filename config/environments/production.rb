@@ -33,10 +33,10 @@ config.action_mailer.default_charset = "utf-8"
 config.action_mailer.smtp_settings = {
 	:enable_starttls_auto => true,
 	:address => 'smtp-9.1gb.ru',
-	:port => 465,
+	:port => 25,
   :user_name => "u159267",
   :password => "dcb0ecd0",
-  :authentication => :plain
+	:authentication => :login
 }
 
 # Enable threaded mode
