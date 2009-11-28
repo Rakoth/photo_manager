@@ -3,9 +3,9 @@
 # Add these callbacks to have the delayed_job process restart when the server
 # is restarted:
 #
-after "deploy:stop",    "delayed_job:stop"
-after "deploy:start",   "delayed_job:start"
-after "deploy:restart", "delayed_job:restart"
+#after "deploy:stop",    "delayed_job:stop"
+#after "deploy:start",   "delayed_job:start"
+#after "deploy:restart", "delayed_job:restart"
 
 Capistrano::Configuration.instance.load do
   namespace :delayed_job do

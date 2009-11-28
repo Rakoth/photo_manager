@@ -32,6 +32,9 @@ namespace :deploy do
 end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
+after "deploy:stop", "delayed_job:stop"
+after "deploy:start", "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
 
 def mongrel_initd action
 	run "/home/virtwww/#{user}/init.d/mongrel #{action} #{rails_env}"
