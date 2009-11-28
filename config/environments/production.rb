@@ -32,21 +32,14 @@ config.action_mailer.perform_deliveries = true
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.default_charset = "utf-8"
 
-#config.action_mailer.smtp_settings = {
-#	:address => 'smtp-9.1gb.ru',
-#	:port => 25,
-#  :user_name => "u159267",
-#  :password => "dcb0ecd0",
-#	:authentication => :login
-#}
-
 config.action_mailer.smtp_settings = {
-	:address => 'smtp.gmail.com',
-	:port => 587,
-  :user_name => "noreply.ellephoto@gmail.com",
-  :password => "Qwerty@12",
-  :authentication => :plain
+	:address => 'smtp-9.1gb.ru',
+	:port => 25,
+	:user_name => "u159267",
+	:password => "dcb0ecd0",
+	:authentication => :login
 }
+
 
 # Enable threaded mode
 # config.threadsafe!
