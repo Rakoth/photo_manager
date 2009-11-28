@@ -37,5 +37,5 @@ after "deploy:start", "delayed_job:start"
 after "deploy:restart", "delayed_job:restart"
 
 def mongrel_initd action
-	run "/home/virtwww/#{user}/init.d/mongrel #{action} #{rails_env}"
+	run "#{deploy_to}/../init.d/mongrel #{action} #{rails_env}"
 end
