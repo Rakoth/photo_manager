@@ -134,7 +134,7 @@ table td div{
 }
 
 #admin_menu{
-	position:absolute;
+	position:fixed;
 	top:100px;
 	left:85%;
 	width:15%;
