@@ -37,18 +37,13 @@ namespace :deploy do
 			system "rsync -vr public/system/images/#{photo} #{user}@#{application}:#{shared_path}/system/images/"
 		end
 	end
-
-	task :set_path, :roles => :app do
-		run "export PATH=/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/x86_64-pc-linux-gnu/gcc-bin/4.1.2:/opt/blackdown-jdk-1.4.2.03/bin:/opt/blackdown-jdk-1.4.2.03/jre/bin:/home/virtwww/w_elle-photo-ru_0ef9754e/.gems/bin"
-	end
 end
 
-after 'deploy', 'deploy:set_path'
 after 'deploy:update_code', 'deploy:symlink_shared'
 after "deploy:stop", "delayed_job:stop"
 after "deploy:start", "delayed_job:start"
 after "deploy:restart", "delayed_job:restart"
 
 def mongrel_initd action
-	run "#{deploy_to}/../init.d/mongrel #{action} #{rails_env}"
+	run "cd #{deploy_to}/../init.d && mongrel #{action} #{rails_env}"
 end
