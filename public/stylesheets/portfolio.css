@@ -135,10 +135,10 @@ table td div{
 
 #admin_menu{
 	position:fixed;
-	top:100px;
+	top:40%;
 	left:85%;
 	width:15%;
-	background-color:white;
+	background-color:#9c0;
 }
 #admin_menu a{
 	color:black;
