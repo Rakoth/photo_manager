@@ -6,12 +6,14 @@ Feature: Guest Manage Albums
 
 	Scenario: Albums List
 		Given I have albums:
-			| title  |
-			| First  |
-			| Second |
+			| title  | photos_count |
+			| First  | 4            |
+			| Second | 1            |
 		When I go to the list of albums
 		Then I should see a link to "First" album
 			And I should see a link to "Second" album
+			And I should see "4"
+			And I should see "1"
 
 	Scenario: Show single Album
 		Given I have album:

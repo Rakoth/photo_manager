@@ -13,7 +13,7 @@ module AlbumsHelper
 
 	def time_viewer object
 		content_tag :span do
-			"#{content_tag :strong, t(:created)}: #{l(object.created_at, :format => :long)};<br />" +
+			"#{content_tag :strong, t(:created)}: #{l(object.created_at, :format => :long)};&nbsp;" +
 				"#{content_tag :strong, t(:updated)}: #{l(object.updated_at, :format => :long)}"
 		end
 	end

@@ -103,6 +103,8 @@ ru:
       edit_photos: Редактировать фотографии
     add_photos:
       title: Добавить фотографии
+    album:
+      photos_count: "Фотографий в альбоме: <strong>{{count}}</strong>"
 
   photos:
     flash:

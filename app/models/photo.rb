@@ -1,7 +1,7 @@
 class Photo < ActiveRecord::Base
 	acts_as_list :scope => :album
 	
-  belongs_to :album
+  belongs_to :album, :counter_cache => true
 	has_many :comments, :conditions => {:spam => false}, :dependent => :delete_all
 	has_many :spams, :conditions => {:spam => true}, :class_name => 'Comment', :dependent => :delete_all
 	has_many :ratings, :dependent => :delete_all

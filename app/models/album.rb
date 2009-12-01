@@ -8,7 +8,7 @@ class Album < ActiveRecord::Base
 	validates_length_of :title, :maximum => 255
 
 	def cover
-		@cover ||= (Photo.find_by_id(self[:cover_id]) or Photo.new)
+		@cover ||= cover_id.nil? ? Photo.new : Photo.find_by_id(cover_id)
 	end
 
 	def next_photo photo

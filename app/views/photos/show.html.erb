@@ -1,4 +1,4 @@
-<% title t('.title', :id => @photo.id) %>
+<% title (@photo.description.blank? ? t('.title', :id => @photo.id) : h(@photo.description)) %>
 
 <% @admin_menu = [
 	link_to("Edit", edit_photo_path(@photo)),

@@ -4,7 +4,8 @@
 	</div>
 	<div>
 		<strong class="title"><%= link_to h(album.title), album %></strong><br />
-		<em><%= time_viewer album %></em>
+		<em><%= time_viewer album %></em><br />
+		<em><%= t ".photos_count", :count => album.photos.size %></em>
 		<div><%=h album.description %></div>
 	</div>
 	<div class="clear"></div>
