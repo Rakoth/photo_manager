@@ -45,6 +45,17 @@ describe CommentsController do
 			build :comment
 			error
 		end
+
+		describe "admin comment" do
+			before do
+				authenticate
+			end
+
+			it "should create admin comment" do
+				@comment.should_receive(:adminify!)
+				post :create
+			end
+		end
 	end
 
 	describe "GET 'new'" do

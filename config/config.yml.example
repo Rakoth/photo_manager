@@ -1,5 +1,7 @@
 development: &defaults
+  site_url: "http://localhost"
   images_in_row: 5
+  admin_name: admin
   admin_email: developer@mail.ru
   category_preview_photos_count: 4
   password: "secret"
@@ -12,12 +14,11 @@ production:
   admin_email: admin@gmail.com
 
 deploy:
-  application: elle_photo
-  server: elle-photo.ru
+  application: ftp.elle_photo.ru
   user: elutic
   password: secret
   scm: git
-  repository: "git://github.com/Rakoth/photo_manager.git"
+  repository: "git://github.com/User/applicatio.git"
   deploy_to: /home/www/elle_photo
   use_sudo: false
   rails_env: production

@@ -46,6 +46,12 @@ class Comment < ActiveRecord::Base
 		delete_all :spam => true
 	end
 
+	def adminify!
+		self.author = AppConfig.admin_name
+		self.author_url = AppConfig.site_url
+		self.author_email = AppConfig.admin_email
+	end
+
 	protected
 
   def add_protocol_to_author_url

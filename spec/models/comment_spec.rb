@@ -127,4 +127,17 @@ describe Comment do
 			end
 		end
 	end
+
+	describe "admin_comment!" do
+		before do
+			@it = Comment.new
+		end
+
+		it "should add admin info to comment" do
+			@it.adminify!
+			@it.author.should == AppConfig.admin_name
+			@it.author_url.should == AppConfig.site_url
+			@it.author_email.should == AppConfig.admin_email
+		end
+	end
 end

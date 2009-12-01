@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
 		@photo = Photo.find(params[:photo_id])
 		@comment = @photo.comments.build(params[:comment])
 		@comment.request = request
+		@comment.adminify! if admin?
 		if @comment.save
 			respond_to do |format|
 				format.html do

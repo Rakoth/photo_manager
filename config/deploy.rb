@@ -1,10 +1,10 @@
 DEPLOY_CONFIG = YAML.load_file("config/config.yml")['deploy']
 
-DEPLOY_CONFIG['settings'].each do |key, value|
+DEPLOY_CONFIG.each do |key, value|
 	set key, value
 end
 
-server DEPLOY_CONFIG['server'], :web, :app, :db, :primary => true
+server DEPLOY_CONFIG['application'], :web, :app, :db, :primary => true
 
 namespace :deploy do
 	desc "Start web server"
