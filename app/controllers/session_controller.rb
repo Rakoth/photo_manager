@@ -2,7 +2,7 @@ class SessionController < ApplicationController
 	skip_before_filter :authenticate
 	
   def create
-		session[:password] = params[:password]
+		session[:password], session[:salt] = AdminPasswordKeeper.authentication_data(params[:password])
 		if admin?
 			flash[:notice] = t 'session.flash.successful_login'
 			redirect_to root_url

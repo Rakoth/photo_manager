@@ -8,7 +8,7 @@ describe SessionController do
 			before {post :create, :password => AppConfig.password}
 
 			it "should set session password" do
-				session[:password].should == AppConfig.password
+				AdminPasswordKeeper.authorize?(session[:password], session[:salt]).should be_true
 			end
 			
 			redirect 'root_url'
@@ -16,10 +16,11 @@ describe SessionController do
 		end
 
 		describe "with incorrect password" do
-			before {post :create, :password => AppConfig.password + 'ehjbvhwebb'}
+			before {post :create, :password => AppConfig.password + 'wrong'}
 
 			it "should reset session password" do
 				session[:password].should be_nil
+				session[:salt].should be_nil
 			end
 
 			success
@@ -29,10 +30,14 @@ describe SessionController do
 	end
 
 	describe "GET destroy" do
-		before {get :destroy}
+		before do
+			post :create, :password => AppConfig.password
+			get :destroy
+		end
 
 		it "should reset session password" do
 			session[:password].should be_nil
+			session[:salt].should be_nil
 		end
 		
 		redirect 'root_url'

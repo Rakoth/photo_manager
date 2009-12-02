@@ -1,3 +1,3 @@
 def authenticate
-	session[:password] = AppConfig.password
+	session[:password], session[:salt] = AdminPasswordKeeper.authentication_data(AppConfig.password)
 end

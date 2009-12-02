@@ -40,10 +40,10 @@ namespace :deploy do
 end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
-after "deploy:stop", "delayed_job:stop"
-after "deploy:start", "delayed_job:start"
-after "deploy:restart", "delayed_job:restart"
+#after "deploy:stop", "delayed_job:stop"
+#after "deploy:start", "delayed_job:start"
+#after "deploy:restart", "delayed_job:restart"
 
 def mongrel_initd action
-	run "cd #{deploy_to}/../init.d && ./mongrel #{action} #{rails_env}"
+	run "sleep 1 && #{deploy_to}/../init.d/mongrel #{action} #{rails_env}"
 end

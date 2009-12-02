@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def admin?
-		@admin ||= (AppConfig.password == session[:password])
+		@admin ||= AdminPasswordKeeper.authorize?(session[:password], session[:salt])
 	end
 
 	def authenticate
