@@ -35,7 +35,7 @@ config.action_mailer.default_charset = "utf-8"
 config.action_mailer.smtp_settings = {
 	:address => 'smtp-9.1gb.ru',
 	:port => 25,
-	:user_name => "u159267",
+	:user_name => "noreply@elle-photo.ru",
 	:password => "dcb0ecd0",
 	:authentication => :login
 }

@@ -1,6 +1,4 @@
 class AppConfig
-	include Singleton
-
 	protected
 	
 	def self.[] key
@@ -9,6 +7,6 @@ class AppConfig
 	end
 
 	def self.method_missing method_name
-		AppConfig[method_name]
+		self[method_name]
 	end
 end

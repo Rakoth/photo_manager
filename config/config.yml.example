@@ -3,6 +3,7 @@ development: &defaults
   images_in_row: 5
   admin_name: admin
   admin_email: developer@mail.ru
+  work_email: developer@mail.ru
   category_preview_photos_count: 4
   password: "secret"
 
@@ -11,7 +12,6 @@ test:
 
 production:
   <<: *defaults
-  admin_email: admin@gmail.com
 
 deploy:
   application: ftp.elle_photo.ru
