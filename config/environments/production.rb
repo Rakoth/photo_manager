@@ -52,7 +52,7 @@ config.after_initialize do
 		protected
 
 		def authenticate
-			unless AppConfig.password == session[:password]
+			unless AdminPasswordKeeper.authorize? session[:password], session[:salt]
 				flash[:error] = t 'application.flash.non_authorized'
 				redirect_to login_path
 			end
