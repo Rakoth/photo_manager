@@ -18,4 +18,10 @@ describe AdminPasswordKeeper do
 		@it.authorize?('noKuEzgvI7ty2', 'tomorow').should be_false
 		@it.authorize?('paword', 'tomorow').should be_false
 	end
+
+	it "should work without data set" do
+		@it.authorize?('ewrwer', nil).should be_false
+		@it.authorize?(nil, '234ewrw').should be_false
+		@it.authorize?(nil, nil).should be_false
+	end
 end
