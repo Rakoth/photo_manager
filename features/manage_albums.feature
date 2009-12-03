@@ -80,6 +80,15 @@ Feature: Manage albums
 			| Delete photos       | photo._delete | 2 photos      |
 			| Mark photo as bathe | photo.bathe   | 1 bathe photo |
 
+	Scenario: Delete cover photo
+		Given I have album:
+			| title |
+			| First |
+			And I have cover photo for "First" album
+		When I delete cover for "First" album
+		  And I go to the list of albums
+		Then I should see "First"
+
   Scenario: Delete album
 		Given I have albums:
 			| title     |

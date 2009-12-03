@@ -2,6 +2,7 @@ class Photo < ActiveRecord::Base
 	acts_as_list :scope => :album
 	
   belongs_to :album, :counter_cache => true
+	has_one :covered_album, :class_name => 'Album', :foreign_key => 'cover_id', :dependent => :nullify
 	has_many :comments, :conditions => {:spam => false}, :dependent => :delete_all
 	has_many :spams, :conditions => {:spam => true}, :class_name => 'Comment', :dependent => :delete_all
 	has_many :ratings, :dependent => :delete_all
@@ -32,7 +33,7 @@ class Photo < ActiveRecord::Base
 	named_scope :without_album, :conditions => {:album_id => nil}
 
 	def cover?
-		!album.nil? and self == album.cover
+		!covered_album.nil?
 	end
 
 	def perform
