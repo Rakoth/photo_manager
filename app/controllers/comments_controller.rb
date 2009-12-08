@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 	has_rakismet :only => :create
 
 	def index
-		@comments = Comment.all
+		@comments = Comment.all :order => 'created_at DESC'
 		Comment.unwatched.update_all :view_at => Time.now
 	end
 
