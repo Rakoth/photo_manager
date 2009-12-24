@@ -73,6 +73,7 @@ God.watch do |watch|
 end
 
 God.watch do |watch|
-	generic_setup watch, 'mongrel', :mongrel_command
+	generic_setup watch, 'mongrel', :mongrel_command,
+		:pid_file => "/home/virtwww/w_elle-photo-ru_0ef9754e/logs_ror/ror_w_elle-photo-ru_0ef9754e.pid"
 	generic_monitoring watch, CONFIG[:mongrel]
 end

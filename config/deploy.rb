@@ -7,19 +7,20 @@ end
 server DEPLOY_CONFIG['application'], :web, :app, :db, :primary => true
 
 namespace :deploy do
-	desc "Start web server"
-	task :start, :roles => :app do
-		mongrel_initd :start
+	desc "Start GOD monitoring"
+	task :start do
+		run "god -c #{current_path}/config/daemons.god"
 	end
 
-	desc "Stop web server"
-	task :stop, :roles => :app do
-		mongrel_initd :stop
+	desc "Stop GOD monitoring"
+	task :stop do
+		run "god stop photo_manager && sleep 3 && god terminate"
 	end
 
-	desc "Restart web server"
-	task :restart, :roles => :app, :except => { :no_release => true } do
-		mongrel_initd :restart
+	desc "Restart GOD monitoring"
+	task :restart do
+		stop
+		start
 	end
 
 	desc "Create symlinks to configuration files in shared directory"
