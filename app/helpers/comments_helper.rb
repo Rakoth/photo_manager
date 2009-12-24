@@ -1,5 +1,6 @@
 module CommentsHelper
 	def gravatar comment, options = {}
+		options[:size] ||= '45x45'
 		image_tag url_for(comment.gravatar_options), options
 	end
 

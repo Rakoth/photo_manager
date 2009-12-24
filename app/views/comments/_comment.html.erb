@@ -7,7 +7,7 @@
 	<% end %>
 
 	<div class="avatar">
-		<%= gravatar comment, :size => '45x45' %>
+		<%= gravatar comment %>
 	</div>
 	<div class="author">
 		<%= author_name comment %>&nbsp;&nbsp;<em><%=l comment.created_at, :format => :smart %></em>

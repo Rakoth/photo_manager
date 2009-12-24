@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
 	def index
 		@comments = Comment.all :order => 'created_at DESC'
-		Comment.unwatched.update_all :view_at => Time.now
+		Comment.unwatched.update_all :view_at => Time.now if admin?
 	end
 
 	def new
