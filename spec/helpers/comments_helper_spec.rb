@@ -4,7 +4,7 @@ describe CommentsHelper do
 	include CommentsHelper
 	
 	describe "gravatar" do
-		before {@gravatar = helper.gravatar(Comment.new(:author_email => 'test@mail.ru'), {:width => 50})}
+		before {@gravatar = helper.gravatar(Comment.new(:author_email => 'test@mail.ru'), {:size => '50x50'})}
 
 		it "should return image tag" do
 			@gravatar.should match /<img.*? \/>/i
